@@ -3,7 +3,7 @@
         {
             "language": "markdown",
             "source": [
-                "# prerequisites\r\n\r\n- [Data types](#data-types)\r\n- Operators\r\n- [Condition statements](#condition-statements)\r\n- [Functions](#functions)\r\n- [Arrays](#arrays)\r\n- [Loops & Iterations](#loops)\r\n- [Objects](#objects)\r\n- [String methods](#string-methods)\r\n- [Array methods](#array-methods)\r\n- [Built in utility objects](#built-in-utility-objects)\r\n- [Coding challenges](#test-your-javascript-skill-by-solving-the-following-problems)"
+                "# curriculum\r\n\r\n- [Data types](#data-types)\r\n- [Operators](#all-operators)\r\n- [Condition statements](#condition-statements)\r\n- [Functions](#functions)\r\n- [Arrays](#arrays)\r\n- [Loops & Iterations](#loops)\r\n- [Objects](#objects)\r\n- [String methods](#string-methods)\r\n- [Array methods](#array-methods)\r\n- [Built in utility objects](#built-in-utility-objects)\r\n- [Coding challenges](#test-your-javascript-skill-by-solving-the-following-problems)"
             ],
             "outputs": []
         },
@@ -17,7 +17,56 @@
         {
             "language": "markdown",
             "source": [
-                "# Data types\r\nJavascript မှာ dat types တွေကို ၂ မျိုးခွဲခြားနိုင်ပါတယ်။\r\n\r\n1) Primitive types\r\n2) Reference types\r\n\r\n### Primitive data types\r\n- string\r\n    - **double or single quote** ထဲကရှိသမျှကို **string data type** လို့သတ်မှတ်ပါတယ် -> \"hello\", 'world'\r\n    - string တွေက default အားဖြင့် multi line ရေးလို့မရပါဘူး,\r\n    - ရေးချင်ရင် batik `` ကိုအသုံးပြုရပါတယ်။ data type အတူတူပဲဖြစ်ပါတယ်။ syntax ပဲကွဲသွားတာပါ။\r\n- boolean\r\n    - **true** or **false** တန်ဖိုး ၂ မျိုးကို **boolean data type** လို့သတ်မှတ်ပါတယ်။\r\n    - \"hello\" or 'world'\r\n- number\r\n    - safe integer limit (±2^53 - 1) မကျော်တဲ့ **integer** ကိန်းဂဏန်းစုအားလုံးကို **number data type** အဖြစ်သတ်မှတ်ပါတယ်။\r\n    - -9007199254740991 ကနေ 9007199254740991 အထိက integer လို့သတ်မှတ်ပါတယ် (console မှာ စစ်ကြည့်နိုင်ပါတယ် 2 ** 53)။\r\n- BingInt\r\n    - safe integer limit ‌ကျော်လွန်သွားတဲ့ integer တစ်ခုက **BigInt data type** တစ်ခုဖြစ်လာပါတယ်။\r\n    - ±9007199254740991 ထက်ကျော်သွားရင် BigInt data type ဖြစ်သွားပါတယ်။\r\n- null\r\n    - javascript မှာ intentionally လုံးဝ တန်ဖိုးကင်းမဲ့နေတဲ့ value တစ်ခုဖြစ်ပါတယ်။\r\n- undefined\r\n    - javascript မှာ data တိုင်းက သူတို့ရဲ့ သက်ဆိုင်ရာ တန်ဖိုးတွေ မရှိသေးခင် default value က undefined ဖြစ်ပါတယ်။\r\n- Symbols\r\n    - javascript နောက်ပိုင်း version တွေမှာမှ စပါလာတဲ့ data type အမျိုးအစားတစ်ခုပါ၊ သူ့ကိုအသုံးနဲကြပြီးတော့ သိပ်လက်တွေ့ အသုံးချမှုလဲသိပ်မရှိတဲ့အတွက် ဒီ module မှာတော့ အကျယ်မရှင်းပြတော့ပါ။\r\n\r\n### Reference data types\r\n- Object\r\n- Array\r\n- Functions\r\n- Map, Set\r\n- Others\r\n    - Date\r\n    - Custom objects\r\n    - Regex\r\n\r\n### how to check\r\nJavascript မှာ typeof ဆိုတဲ့ keyword လေးကိုသုံးပြီး Data types တွေကို စစ်ဆေးနိုင်ပါတယ်။\r\n\r\n```js\r\nconsole.log(typeof \"Hello\") // output: string\r\nconsole.log(typeof 123) // output: number\r\nconsole.log(typeof true) // output: boolean\r\nconsole.log(typeof [1,2,3]) // output: object\r\nconsole.log(typeof {a:1, b:2, c:3}) // output: object\r\n```\r\n\r\nဆိုတော့... ကိုယ်ပိုင် နာမည်လေးတွေရှိနေရင် Primitive type, object လို့ပေါ်ရင် reference လို့လဲအလွယ်မှတ်လို့ရပါတယ်။\r\n\r\n### Primitive data type vs Reference data types\r\n\r\nPrimitive data types တွေဆိုတာ သူတို့ကို စဖန်တီးလိုက်တဲ့အခါ computer memory ထဲမှာ သူတို့ရဲ့တန်ဖိုးအတိုင်းပုံသေတည်ရှိနေတဲ့ variable တွေဖြစ်ပါတယ်။ သူတို့ကို သိမ်းဆည်းတဲ့ data structure အမျိုးအစားကတော့ stack လို့ခေါ်ပါတယ်။ **stack** ဆိုတဲံအတိုင်း သူ့နေရာနဲ့သူ သူ့တန်ဖိုးတဲ့သူ memory stack ထဲမှာတည်ရှိနေကြပါတယ်။ \r\n\r\n```js\r\n    let a = 1\r\n    let b = 2\r\n```\r\nReference data types တွေဆိုတာကတော့ သူ့နာမည်ကိုကြည့်ရုံနဲ့တင် အနည်းငယ်အရိပ်အမွတ်လောက် သိမယ်ထင်ပါတယ်၊ reference data type variable တွေက သူတို့ရဲ့ actual value က memory stack ထဲမှာ မဟုတ်ပါဘူး၊ **heap** လို့ခေါ်တဲံ့အခြား data structure သက်သက်တစ်ခုထဲမှာ သိမ်ထားတာပါ၊ memory stack ထဲမှာရှိနေတဲ့ အရာကတော့ အဲဒီ heap ထဲက သူတို့ရဲ့ လိပ်စာပါ၊ programming world မှာတော့ အဲလိုအရာကို **pointer** လို့ခေါ်ပါတယ်။\r\n\r\n```js\r\n    let c = { a : 1}\r\n```\r\nအခုလို ဖန်တီးလိုက်တဲ့ object တစ်ခုမှာ c ဆိုတဲ့ variable လေးက stack ထဲမှာ \r\n\r\n\r\n### Overflow-simplified\r\nအရှင်းဆုံးနားလည်အောင်ကြိုးစားမယ်ဆိုရင် ...\r\n\r\nလူတစ်စု နေရာတစ်တစ်နေရာမှာ သူတို့ရဲ့လုပ်ငန်းဆောင်တာတွေကို လုပ်ဆောင်ဖို့ စောင့်စားနေကြတယ် ဆိုပါစို့ (maybe a bank, office, bus station etc..)\r\nအဲလူတွေထဲမှာ လူအမျိုးမျိုးရှိနေမယ်, အဲလိုအမျိုးမျိုးရှိနေတဲ့လူတွေကို data types တွေလို့မြင်ကြည့်ပါ, string, boolean, objects, array etc... အဲလိုလူတွေအများကြီးရှိတဲ့ အထဲကမှ လူတစ်ချို့က သူတို့ကိုယ်တိုင် physically လာထိုင်စောင့်ကြတယ်၊ လူတစ်ချို့ကကျတော့ လူအငှားနဲ့ စောင့်ခိုင်းထားတယ် စောင်းဆိုင်းတဲ့နေရာမှာ သူတို့ကိုယ်တိုင် ရှိမနေကြဘူး အငှားစောင့်ပေးတဲ့လူပဲရှိနေမယ်။ အဲဒီအငှားစောင့်ပေးတဲံလူစီမှာ သူ့ကို စောင့်ခိုင်းထားတဲ့လူရဲ့ အမည်၊ နေရပ်လိပ်စာ ရှိတယ်၊ နောက်ပြီး အဲဒီအငှားစောင့်ပေးတဲ့ လူကပဲ သူအငှားစောင့်ပေးတဲ့လူ တစ်ယောက်မကရှိချင်လဲရှိမယ်၊ တစ်ယောက်ထက်မကရင် သူ့စီမှာ အမည်၊ လိပ်စာကို လူစာရင်းလိုက်ကြီးရှိနေမယ်။ သူ့ကိုငှားထားတဲ့ လူတွေကတော့ သူတို့အိမ်မှာပဲသူတို့ရှိနေကြမယ်။\r\n\r\n>- ဒီလိုမျိုးကို ဥပမာယူပြီး ကိုယ်တိုင်လာစောင့်နေသူတွေအမျိုးအစားက Primitive type \r\n>- အငှားနဲ့စောင့်သူတွေက Reference type လို့သတ်မှတ်နိုင်ပါတယ်။\r\n\r\n"
+                "# What and Why data types\r\n\r\n**Programming language** ဆိုတဲ့ အဆောက်အဦးတစ်ခုထဲကိုဝင်ဖို့ **data types** ဆိုတဲ့ ဝင်ပေါက်ကနေစဝင်ရပါတယ်။ တကယ့် လက်တွေ့မှာလဲ software တစ်ခု, computer program တစ်ခုဆိုတာ တူညီတဲ့၊ မတူညီတဲ့ data types တွေ တစ်ခုနဲ့တစ်ခု ချိတ်ဆက် ဆောင်ရွက်ပြီး၊ သူတို့ရဲ့ ကိုယ်ပိုင် property တွေ၊ ကိုယ်ပိုင် method တွေကိုအသုံးပြုပြီးတော့ ခိုင်းစေထားတဲ့ task တွေကိုဆောင်ရွက်နေကြတာကို programming လို့ခေါ်တာပါ။ \r\n\r\na ဆိုတဲ့ data type တစ်ခုရဲ့စွမ်း‌ဆောင်ပုံနဲ့က b ဆိုတဲ့ data type တစ်ခုရဲ့ စွမ်း‌ဆောင်ပုံနဲ့မတူဘူး၊ အလုပ်လုပ်ပုံမတူဘူး၊ ကိုယ်ပိုင်ကျင့်သုံးတဲ့ method နည်းလမ်းတွေမတူဘူး၊ သို့သော် သူတို့ ၂ ခုက အပြန်လှန် ဆက်နွယ်၊ ချိတ်ဆက် ပြီးတော့ တာဝန်တစ်ခုကို ပြီးမြောက်အောင်တော့ဆောင်ရွက်နိုင်တယ်။\r\n\r\nဘယ်လိုဆောင်ရွက်လဲဆိုတော့, program တစ်ခုကိုစလိုက်တာနဲ့ တစ်ပြိုင်နက် data type တစ်ခုခုရှိတဲ့ **a** ဆိုတဲ့ variable လေးတစ်ခုရှိမယ်ဆိုပါစို့၊ အဲဒီ **a** ဆိုတဲ့ ဟာလေးပေါ်မူတည်ပြီးတော့ အခြေအနေတစ်ခုမှာ **b** ဆိုတဲ့ဟာလေးက သူ့ရဲ့ကိုယ်ပိုင် method တစ်ခုကိုသုံးပြီး အလုပ်တစ်ခုကိုလုပ်လိုက်မယ်၊ အဲလိုလုပ်လိုက်လို့ ရလဒ်အနေနဲ့ **c** ဆိုတဲ့ အခြား data type ရှိတဲ့ တန်ဖိုးလေးတစ်ခု ထွက်လာမယ်၊ အဲလို ထွက်လာတဲ့ **c** ဆိုတဲ့ဟာလေးမှာလဲ သူ့ကိုယ်ပိုင် ကျင့်သုံးတဲ့ method, စွမ်းဆောင်ရည်တွေ ရှိနေမှာပဲ၊ ဒါမှမဟုတ် a သို့မဟုတ် b တစ်ခုခုနဲ့ data type ချင်းတူရင် c မှာ သုံးလို့ရတဲ့ method တွေချင်း, property ချင်းတူညီချင်းတူမှာပါ၊ အဲဒါတွေကို အသုံးချပြီး သူကနေတစ်ဆင့် သက်မှတ်ထားတဲ့ \r\nတာဝန်တစ်ခုမပြီးမခြင်း၊ တစ်ဆင့်ပြီးတစ်ဆင့် ဆင့်ပွားအခြား အလုပ်တွေကို ဆက်တိုက်ပြုလုပ်သွား ပြုလုပ်သွားတာတွေက program တစ်ခုကို execute လိုက်တာရဲ့နောက်ကွယ်က အရာတွေပါ။ \r\n<br/>\r\nအပေါ်က ဥပမာထဲမှာ a နဲ့ b က data type ခြင်းမတူတဲ့အတွက် a မှာ အသုံးပြုတဲ့ ကိုယ်ပိုင် method တစ်ခုကို b မှာသွားသုံးလို့မရပါဘူး၊ သွားသုံးရင် error တက်မှာဖြစ်တယ်။ ဒါပေမယ့် a နဲ့ b က အပြန်အလှန် အခြေအနေတွေအရ ပေါင်းစပ်သင့်ရင်ပေါင်းစပ်ပြီး အလုပ်တွေတော့ အတူတွဲလုပ်လို့တော့ရပါတယ်။\r\n\r\nဆိုတော့... Programmer တစ်ယောက်အနေနဲ့ အဲလို program တွေကို ခိုင်းစေဖို့ကို data types တွေကိုသိဖို့ဆိုတာ အခြေခံအကျဆုံးလိုအပ်ချက်ပါ။\r\n\r\nဒါကြောင့် data types တွေဆိုတာအလွယ်ဆုံးအပိုင်းမို့လို့ အခြေခံကနေစလေ့လာရတဲ့ အရာမျိုးလုံးဝမဟုတ်ပဲ၊ သူတို့ကိုနားလည်မှသာ program တစ်ခုကိုစရေးနိုင်မှာမို့ အလွန်အရေးကြီး တာကြောင့် အစောဆုံးအနေနဲ့ စလေ့လာရတာပါ။\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "\r\n\r\n# Data types\r\nJavascript မှာ dat types တွေကို ၂ မျိုးခွဲခြားနိုင်ပါတယ်။\r\n\r\n1) Primitive types\r\n    - computer memory ထဲမှာ ပုံသေ တစ်ခုစီ သိမ်းဆည်းထားတဲ့ data type တွေဖြစ်တယ်။ ဥပမာ a = 1 ဆိုရင် a က 1 နဲ့ညီတယ်လို့ဆိုလိုတာမဟုတ်ပဲ၊ a ဆိုတဲ့ variable လေးရဲ့ အထဲမှာ 1 ဆိုတဲ့ တန်ဖိုးလေးတစ်ခုကို သိမ်းထားတယ်လို့ဆိုတာပါ။ <br/>\r\n    primitive data types တွေလို့ခေါ်ရတဲ့အကြောင်းအရင်းက သူတို့က computing မှာအမြဲ မရှိမဖြစ်ပါဝင်နေတဲ့ data types တွေဖြစ်တာကြောင့်ရယ် <br/>\r\n    နောက်တစ်ချက်က သူတို့ကို အခြားသော data types တွေကနေ ဖွဲ့စည်းထားတာမျိုးမဟုတ်ပဲ၊ သူတို့ဘာသာ သီးခြားတည်ရှိ နေတာကြောင့်ဖြစ်ပါတယ်။ \r\n     \r\n\r\n2) Reference types\r\n    - သူတို့က data type ရယ်လို့တိုက်ရိုက်ကြီး မဟုတ်ပဲ data structure တစ်ခုလို့ပြောလို့လဲရပါတယ်။ ဘာကြောင့်ဆို reference data types တော်တော်များများက သူတို့ထဲမှာ အခြားသော မတူညီတဲ့ data types တွေများစွာကို တစ်စုတည်းသိမ်းဆည်းနိုင်လို့ပါ။ အပေါ်မှာ ပြောခဲ့တဲ့ အတိုင်း primitive data types တွေနဲ့ကွာခြားချက်က reference data types တွေဟာ အခြားသော data types တွေနဲ့ ဖွဲ့စည်းထားတာပါ၊ အဲလိုဖွဲ့စည်းချိန်မှာ memory ထဲက တန်ဖိုးတွေကို တိုက်ရိုက်သိမ်းဆည်းထားတာမျိုးမဟုတ်ပဲ သူတို့ရဲ့ memory reference (_in another word_ **location in memory**) ကိုသာ သိမ်းတာကြောင့် reference data types တွေလို့ခေါ်တာပါ။\r\n\r\n\r\n<h2 align=\"center\"><b>Primitive data types</b> </h2> \r\n\r\n- **string**\r\n    - string literal လို့ခေါ်တဲ့ **double or single quote** ထဲက character တွေစုထားတဲ့ အစုတစ်စုကို  string လို့သက်မှတ်ပါတယ်-> \"hello\", 'world'\r\n    - string တွေက default အားဖြင့် multi line ရေးလို့မရပါဘူး၊\r\n    - ရေးချင်ရင် batik လို့ခေါ်တဲ့ `` <-ဒါလေးကို ကိုအသုံးပြုရပါတယ်။ data type အတူတူပဲဖြစ်ပါတယ်။ syntax ပဲကွဲသွားတာပါ။ \"\" အထဲမှာ ဘာမှမရေးထားရင် empty string လို့ခါ်ပါတယ်။ data type ကလဲ string ပါပဲ။\r\n\r\n- **boolean**\r\n    - **true** or **false** တန်ဖိုး ၂ မျိုးကို **boolean data type** လို့သတ်မှတ်ပါတယ်။\r\n    - boolean မှာတော့ string နဲ့ အခြား data type တွေမှာလို literal syntax မလိုပဲ တိုက်ရိုက် ‌ရေးလို့ရပါတယ်\r\n    - **true** or **false**\r\n\r\n- **number**\r\n    - javascriptမှာတော့ + or - ကိန်းဂဏန်းအားလုံးကို number လို့သတ်မှတ်ပါတယ်, integer လို့ခေါ်တဲ့ ကိန်းပြည့်တွေ, non-integer or floating point number ဒသာမကိန်းတွေက number data type ထဲမှာဝင်ပါတယ်၊\r\n    - သို့သော် integer တစ်ခုက number data type လို့သတ်မှတ်ခံရဖို့ safe integer precision range လို့ခေါ်တဲ့ သတ်မှတ်ချက်တစ်ခုအတွင်းမှာတော့ရှိရပါမယ်။\r\n    - safe integer limit လို့ခေါ်တဲ့ \"plus or minus two power 53\" (±2^53 - 1) အတွင်း မကျော်တဲ့ **integer** ကိန်းဂဏန်းစုအားလုံးကို **number data type** အဖြစ်သတ်မှတ်ပါတယ်။\r\n    - ဆိုလိုတာက -9007199254740991 ကနေ 9007199254740991 အထိက integer တွေက number data type တွေဖြစ်ပါတယ်။\r\n    > (2 ** 53 လို့ console မှာ စစ်ကြည့်နိုင်ပါတယ်)။\r\n\r\n- **BingInt**\r\n    - safe integer limit ‌ကျော်လွန်သွားတဲ့ integer တစ်ခုက **BigInt data type** တစ်ခုဖြစ်လာပါတယ်။\r\n    - ±9007199254740991 ထက်ကျော်သွားရင် BigInt data type ဖြစ်သွားပါတယ်။\r\n    - လက်တွေ့မှာ တော့ အင်မတန် ရှည်လွန်းတဲ့ number တွေကို string တွေအဖြစ် သိမ်းရင်သိမ်း မသိမ်းရင်၊ ကိုယ်ပိုင် package or library တစ်ခုခုဖန်တီးပြီး handle လုပ်ကြပါတယ်။ ထိမ်းသိန်းရခက်တဲ့ data type တစ်ခုဖြစ်လို့ လက်တွေ့မှာတော့ number data type တွေထက်အသုံးနည်းပါတယ်။\r\n    - BigInt အတွက် literal syntax မရှိလို့ BigInt လို့ရေးရပါတယ်။\r\n\r\n- **null**\r\n    - javascript မှာ intentionally လုံးဝ တန်ဖိုးကင်းမဲ့နေတဲ့ value တစ်ခုဖြစ်ပါတယ်။\r\n\r\n- **undefined**\r\n    - javascript မှာ data တိုင်းက သူတို့ရဲ့ သက်ဆိုင်ရာ တန်ဖိုးတွေ မရှိသေးခင် default value က undefined ဖြစ်ပါတယ်။\r\n    - အဲတာဆို null နဲ့ undefined က ဘာမှမရှိတာခြင်းအတူတူ ဘယ်လိုကွာလဲပေါ့..\r\n    - undefined ကသေတ္တာအလွတ်တစ်လုံးနဲ့တူပါတယ်၊ သေတ္တာအလွတ်ဆိုတာတကယ်တော့ variable တစ်ခုပေါ့ သူ့ကို ဖန်တီးပြီးတော့ သူ့ထဲကိုတော့ ဘာမှလာမထည့်ရသေးတဲ့ သဘောပါ\r\n    - javascript မှာကတကယ်တော့ variable တစ်ခုကို ဖန်တီးပြီး သူ့ထဲမှာ ဘာမှလာမထည့်ရသေးရင် အဲဒီ့ variable ရဲ့ default တန်ဖိုးက undefined ဖြစ်ပါတယ်။\r\n    - null ကတော့ သေတ္တာဆိုတဲ့ဟာတောင်ရှိမနေတာမျိုး၊ လုံးဝ ဘာမှမရှိတဲ့မျိုးကိုဆိုလိုတာပါ၊\r\n\r\n- **Symbols**\r\n    - Javascript ES6 2015 မှာမှ new primitive data types lineup ထဲကို အသစ်တစ်ခုအနေနဲ့ စပါလာလာတဲ့ data type အမျိုးအစားတစ်ခုဖြစ်ပါတယ်။ သူ့ရဲ့ တစ်ခုတည်းသော တည်ရှိရခြင်း ရည်ရွယ်ချက်က **Object** တွေမှာ unique identifier အတွက်အသုံးပြုဖို့ပဲဖြစ်ပါတယ်။ Symbol တွေမှာလဲ literal syntax မရှိလို့ Symbol လို့ပဲရေးရပါတယ်။\r\n\r\n    ```js\r\n        Symbol(\"hello I'm a symbol\")\r\n    ```"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "<p style=\"color: gray; font-size:20px; text-align:center;\">If you have any difficulties understanding for some technical terms, please do not worry, <br/> they are all covered in details in the upcoming sections</p>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "<h2 align=\"center\"><b>Reference data types</b> </h2> \r\n\r\n- **Array**\r\n    - array တွေဆိုတာ မတူညီတဲ့ data types တွေများစွာကို တစ်ခုတည်းမှာ သိမ်းဆည်းလို့ရတဲ့၊ javascript မှာ built-in ပါဝင်တဲ့ data structure တစ်ခုဖြစ်ပါတယ်။ array တွေဆိုတာ data structure တွေထဲမှာတော့လုံးဝ ကို ဆရာကြီးပါပဲ! ဘာလို့ဆိုတော့ ဘယ်နေရာရောက်ရောက် သူတို့နဲ့ အမြဲတွေ့နေမှာမို့ပါ။ \r\n    array တစ်ခုကို ဖန်တီးဖို့ syntax literal for array ကတော့ ထောင့်ကွင်း [] ၂ ခုနဲ့ ရေးရပါတယ်။\r\n\r\n    ```js\r\n    [1,2,3,4,5, \"hello\", \"world\", true, false, \"hello\"]\r\n    ```\r\n\r\n\r\n- **Object**\r\n    - Object တွေဆိုတာကလဲ မတူညီတဲ့ data types တွေများစွာကို တစ်စုတစ်စည်းတည်းသိုလှောင် လို့ရတဲ့ နောက်ထပ် data structure (data type) တစ်မျိုးပါ၊ ဒါပေမယ့် array တွေနဲ့ ကွာခြားပါတယ်၊ object တွေက **key-value** pair ပုံစံကို သုံးပြီး data တွေကို သိမ်းဆည်းတယ်၊ method တွေ custom တည်ဆောက်လို့ရတယ်၊ global keyword တွေနဲ့ပတ်သက်နေတယ်၊ မွေးစား object တွေဖန်တီးလို့ရတယ်။ အစရှိတဲ့ အရေးကြီးတဲ့ feature တွေအပြင် အခြား အရာတွေလဲများစွာရှိပါသေးတယ်၊ object တစ်ခုကို ဖန်တီးဖို့ object literal လို့ခေါ်တဲ့ {} တွန့်ကွင်းကို အသုံးပြုနိုင်ပါတယ်၊\r\n\r\n    ```js\r\n        {name : \"Joe Biden\", age : 18, isPresident : true}\r\n    ```\r\n\r\n\r\n- **Functions**\r\n    - function တွေကလဲ data type အမျိုးအစားတစ်ခု ဖြစ်ပါတယ်၊ သူတို့ကတော့ data တွေသိမ်းဆည်းတဲ့ အလုပ်အပြင်, ထုတ်လုပ်ပေးတဲ့ အလုပ်ကိုပါ လုပ်ကြပါတယ်။ အမျာအားဖြင့်တော့ သိမ်းတာထက် ထုတ်လုတ်ပေးတာကိုပဲ အများဆုံးလုပ်ပေးတာပါ။ function တွေဆိုတာက အလွန်အင်မတန်အရေးကြီး တာကြောင့် အချိန်ပေး လေ့လာသင့်တဲ့အရာတွေဖြစ်ပါတယ်။ javascript မှာ function တွေကိုဖန်တီးတဲ့ ပုံစံတွေက ၁ ခုထက်ပိုရှိပါတယ်။ အောက်က ဥပမာလေးမှာတော့ function ဆိုတဲ့ keyword ကိုသုံးပြီး ဖန်တီးပြထားတာပါ။\r\n\r\n    ```js\r\n    function someFunction(){\r\n        //\r\n    }\r\n    ```\r\n\r\n- **Set**\r\n    - Set တွေက array တွေလိုပဲ ဒါပေမယ့် သူက unique ဖြစ်တဲ့ data တွေကိုပဲ သိမ်းပါတယ်။ array တွေမှာလို တန်ဖိုးတူ duplicate values တွေကို ထပ်ခါထပ်ခါ မသိမ်းပါဘူး။ နောက်ပြီးတော့ Set တွေက array တွေကနေ duplicate တွေဖယ်ထုတ်ချင်တဲ့အခါမျိုးတွေဆို array တွေနဲ့ သဟဇာတဖြစ်ဖြစ် တွဲသုံးလေ့ရှိပါတယ်။ သူ့မှာ literal syntax မရှိပါဘူး၊ ဒါကြောင့် set တစ်ခုကို ဖန်တီးရင် အချက် ၃ ချက်လိုပါတယ်၊ \r\n\r\n    - ပထမကတော့ constructor function တစ်ခုရဲ့  syntax အတိုင်း new ဆိုတဲ့ keyword လေးရယ်\r\n    - သူ့နောက်က constructor function ဖြစ်တဲ့ Set ရယ်၊ \r\n    - သူ့ထဲမှာ iterable ဖြစ်တဲ့ တခြား data တစ်ခုရယ် အစရှိသဖြင့် အဆင့် ၃ ဆင့် နဲ့ ဖန်တီးရပါတယ်။\r\n    \r\n        _ခုထဲမှာ နားမလည်လောက်စရာတွေ ဖြစ်တဲ့ constructor function တို့, iterable တို့ကို ခေါင်းရှုပ်ခံစဥ်းစား မခံစေလိုပါ။ သူတို့က ဒီ မှာ မပါသေးတာကြောင့် ကြားဖူးနားဝ knowledge အနေနဲ့ပဲမှတ်ထားပါဦးနော်!_\r\n\r\n    ```js\r\n    // no duplicate values were accepted like array above\r\n    new Set([1,2,3, \"hello\", true, false])\r\n    ```\r\n\r\n- **Map**\r\n    - Map တွေကလဲ ပုံမှန် objet တွေနဲ့ အ‌ပေါ်ယံအားဖြင့် ဆင်တူပါတယ်၊ သူမှာတော့ ပုံမှန် object တွေမှာ မပါတဲ့ feature တချို့ ထပ်‌ပေါင်းထည့်ထားတာမျိုးပါ၊ (Object တွေလောက်တော့ powerful သိပ်မဖြစ်ပါ၊ method လေးတစ်ချို့နဲ့၊ iterate လုပ်လို့ရတာလောက်ပဲ အပိုပါတာပါ) ကိုယ်ပိုင် iterate built-in ပါတော့ iterate လုပ်လို့ရတာတွေ၊ (ပုံမှန် object တွေမှာ မရပါ) , clear လုပ်ပစ်လို့ရတာတွေ, array method တစ်ခုနဲ့ခပ်ဆင်ဆင် နောက်တစ်ခု ပါဝင်တာတို့ အစရှိသဖြင့် အသေးစိတ်လေးတွေ လုပ်လို့ရတယ်။ သူလဲကိုယ်ပိုင် literal syntax မရှိလို့ **Set** လိုမျိုး နည်းတူဖန်တီးရပြီးတော့၊ မတူတာလေးက သူက object လိုဖြစ်လို့, key, value pair အလိုက်ထည့်ပေးရတာပါ\r\n\r\n    ```js\r\n    const map = new Map([\r\n        [1, \"one\"],\r\n        [2, \"two\"],\r\n        [3, \"three\"]\r\n   ]);\r\n    ```\r\n\r\n- **Utility Global objects**\r\n    Javascript မှာ အခြား global object တွေရှိပါသေးတယ်၊ သူတို့ကိုတော့ သက်ဆိုင်ရာ section တွေမှာမှ အကျယ်တဝင့်ဆက်လက်ရှင်းပြသွားပါမယ်..\r\n    - Date\r\n    - Regex\r\n    - Math\r\n    - Number\r\n    - Array\r\n    - at least 5 more..\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "\r\n### how to check the type of a data\r\nJavascript မှာ typeof ဆိုတဲ့ unary operator လေးရှိပါတယ်၊ သူ့ကိုသုံးပြီး Data types တော်တော်များများကို စစ်ဆေးနိုင်ပါတယ်။\r\n\r\n```js\r\nconsole.log(typeof \"Hello\") // string\r\nconsole.log(typeof 123) //  number\r\nconsole.log(typeof true) //  boolean\r\nconsole.log(typeof Symbol(\"Hi\")) //  symbol\r\nconsole.log(typeof [1,2,3]) //  object\r\nconsole.log(typeof {a:1, b:2, c:3}) //  object\r\n```\r\n\r\nဆိုတော့... ကိုယ်ပိုင် နာမည်လေးတွေရှိနေရင် Primitive type, object လို့ပေါ်ရင် reference လို့လဲအလွယ်မှတ်လို့ရပါတယ်။\r\n**typeof** keyword တစ်မျိုးထဲနဲ့ data type တစ်ခုကို အတိအတကျ မသိနိူင်တဲ့ အချို့ချွင်းချက်လေးတွေ တစ်ချို့တော့ ရှိပါတယ်၊ အောက်က block တွေမှာလက်ရှင်းပြသွားပါမယ်။\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "<h2 align=\"center\"><b>Assigning variables</b> </h2> \r\n\r\njavascript မှာ variable တစ်ခုကိုဖန်တီးရင် (declare လုပ်တယ်လို့ခေါ်ပါတယ်) အောက်က keyword တွေသုံးပြီးဖန်တီးရပါတယ်။ keyword တစ်ခုချင်းစီက မတူညီတဲ့ လုပ်ဆောင်ပုံ ကိုယ်စီရှိကြပါတယ်။\r\n<br/>\r\nvariable တစ်ခုကို..\r\n\r\n1) let\r\n    - ဒါနဲ့ declare ရင် သူ့ ကို declare လုပ်တဲ့ {} တွန့်ကွင်းအထဲမှာပဲ သုံးလို့ရပါတယ်၊ တွန့်ကွင်းအပြင်မှာသုံးလို့မရပါဘူး။ နောင်တစ်ချိန်မှာ သူ့ရဲ့ နဂို တန်ဖိုးကို တခြားဟာနဲ့ ပြန်ပြောင်းလို့ရတယ်။ သူ့နဲ့ declare တဲ့ variable ကို **block-scope** variable လို့ခေါ်ပါတယ်။\r\n\r\n3) const\r\n    - ဒါကို အသုံးပြုပြီး declare ရင်လဲ လုပ်တဲ့ {} တွန့်ကွင်းအထဲမှာပဲသုံးလို့ရပါတယ်။ ဒါပေမယ့် ပထမဆုံးပေးလိုက်\r\nတဲ့ တန်ဖိုးက အတည်ပဲဖြစ်ပြီး နောက်ထပ်ပြောင်းလို့မရတော့ပါဘူး၊ constant အတိုခေါက်မို့ **const** လို့ခေါ်တာပါ။ သူလဲ **block-scope** variable declaration ပါပဲ။\r\n\r\n2) var\r\n    - ဒါကို အသုံးပြုပြီး declare ရင်တော့ {} တွန့်ကွင်းအထဲမှာရော တွန့်ကွင်းအပြင်မှာပါ သုံးလို့ရပါတယ်။ Globally သုံးလို့ရလို့ သူနဲ့ declare တဲ့ variable က **global scope variable** ခေါ်ပါတယ်။"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "var a = \"one\";\r\nlet c = \"three\";\r\nconst e = \"five\"\r\n\r\n// {} အစဆုံးအတွင်းကို block လို့ခေါ်ပါတယ်။ \r\nfor (let index = 0; index < 1; index++) {\r\n   a = 1;\r\n   var b = \"two\";\r\n   c = 3;\r\n   let d = \"four\";\r\n   e = 6 // can not reassign, error တက်ပါမယ်\r\n}\r\n\r\nconsole.log(a); // 1\r\nconsole.log(b); // two ဒါလေးကို {} တစ်ခုမှာ ကြော်ငြာထားပေမယ့်၊ ဒီမှာလာခေါ်သုံးလို့ရနေပါတယ်။\r\nconsole.log(c); // 3\r\n// console.log(d); // is not defined, error တက်ပါမယ်\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "\r\n<h2 align=\"center\"><b>Primitive data type vs Reference data types</b> </h2> \r\n\r\n\r\nPrimitive data types တွေဆိုတာ သူတို့ကို စဖန်တီးလိုက်တဲ့အခါ computer memory ထဲမှာ သူတို့ရဲ့တန်ဖိုးအတိုင်းပုံသေတည်ရှိနေတဲ့ variable တွေဖြစ်ပါတယ်။ သူတို့ကို သိမ်းဆည်းတဲ့ data structure အမျိုးအစားကတော့ stack လို့ခေါ်ပါတယ်။ **stack** ဆိုတဲ့အတိုင်း သူ့နေရာနဲ့သူ သူ့တန်ဖိုးတဲ့သူ memory stack ထဲမှာ အစီစဥ်တကျ အထပ်လိုက်လေး တည်ရှိနေကြပါတယ်။ \r\n\r\n```js\r\n    let a = 1\r\n    let b = 2\r\n```\r\nReference data types တွေဆိုတာကတော့ သူ့နာမည်ကိုကြည့်ရုံနဲ့တင် အနည်းငယ်အရိပ်အမွတ်လောက် သိမယ်ထင်ပါတယ်၊ reference data type variable တွေက သူတို့ရဲ့ actual value က memory stack ထဲမှာ မဟုတ်ပါဘူး၊ **heap** လို့ခေါ်တဲ့အခြား data structure သက်သက်တစ်ခုထဲမှာ သွားသိမ်းထားတာပါ၊ memory stack ထဲမှာရှိနေတဲ့ အရာကတော့ အဲဒီ heap ထဲက သူတို့ရဲ့ လိပ်စာပါ၊ programming world မှာတော့ အဲလိုအရာကို **pointer** လို့ခေါ်ပါတယ်။\r\n\r\n```js\r\n    let c = { a : 1}\r\n```\r\nအခုလို ဖန်တီးလိုက်တဲ့ object တစ်ခုမှာ c ဆိုတဲ့ variable လေးက stack ထဲမှာ သူ့ရဲ့လိပ်စာ၊ heap ထဲမှာသူ့ရဲ့တန်ဖိုး\r\n\r\n\r\n### Overflow-simplified\r\nအရှင်းဆုံးနားလည်အောင်ကြိုးစားမယ်ဆိုရင် ...\r\n\r\nလူတစ်စု နေရာတစ်တစ်နေရာမှာ သူတို့ရဲ့လုပ်ငန်းဆောင်တာတွေကို လုပ်ဆောင်ဖို့ စောင့်စားနေကြတယ် ဆိုပါစို့ (maybe a bank, office, bus station etc..)\r\nအဲလူတွေထဲမှာ လူအမျိုးမျိုးရှိနေမယ်, အဲလိုအမျိုးမျိုးရှိနေတဲ့လူတွေကို data types တွေလို့မြင်ကြည့်ပါ, string, boolean, objects, array etc... အဲလိုလူတွေအများကြီးရှိတဲ့ အထဲကမှ လူတစ်ချို့က သူတို့ကိုယ်တိုင် physically လာထိုင်စောင့်ကြတယ်၊ လူတစ်ချို့ကကျတော့ လူအငှားနဲ့ စောင့်ခိုင်းထားတယ် စောင်းဆိုင်းတဲ့နေရာမှာ သူတို့ကိုယ်တိုင် ရှိမနေကြဘူး အငှားစောင့်ပေးတဲ့လူပဲရှိနေမယ်။ အဲဒီအငှားစောင့်ပေးတဲံလူစီမှာ သူ့ကို စောင့်ခိုင်းထားတဲ့လူရဲ့ အမည်၊ နေရပ်လိပ်စာ ရှိတယ်၊ နောက်ပြီး အဲဒီအငှားစောင့်ပေးတဲ့ လူကပဲ သူအငှားစောင့်ပေးတဲ့လူ တစ်ယောက်မကရှိချင်လဲရှိမယ်၊ တစ်ယောက်ထက်မကရင် သူ့စီမှာ အမည်၊ လိပ်စာကို လူစာရင်းလိုက်ကြီးရှိနေမယ်။ သူ့ကိုငှားထားတဲ့ လူတွေကတော့ သူတို့အိမ်မှာပဲသူတို့ရှိနေကြမယ်။\r\n\r\n>- ဒီလိုမျိုးကို ဥပမာယူပြီး ကိုယ်တိုင်လာစောင့်နေသူတွေအမျိုးအစားက Primitive type \r\n>- အငှားနဲ့စောင့်သူတွေက Reference type လို့သတ်မှတ်နိုင်ပါတယ်။\r\n\r\n"
             ],
             "outputs": []
         },
@@ -38,21 +87,315 @@
         {
             "language": "markdown",
             "source": [
-                "### Javascript Keywords\r\n\r\nKeywords တွေဆိုတာ သူတို့ရဲ့ သက်ဆိုင်ရာ tasks တွေကို လုပ်ဆောင်ဖို့ သီးသန့် reserve လုပ်ထားတဲ့ အရာတွေပါ၊ သူတို့နာမည်ကို သုံးပြီးတော့ variable name ပေးတာတို့, function declare တာတို့လုပ်လို့မရပါဘူး။ အောက်ကဟာတွေအကုန်လုံးက javascript ရဲ့ reserved လုပ်ထားတဲ့ keyword တွေပါ\r\n\r\n<details>\r\n<summary>see all keywords +</summary>    \r\n\r\n- <summary>abstract</summary>    \r\n- <summary>arguments</summary>    \r\n- <summary>await*</summary>    \r\n- <summary>boolean</summary>    \r\n- <summary>break</summary>    \r\n- <summary>byte</summary>    \r\n- <summary>case</summary>    \r\n- <summary>catch</summary>    \r\n- <summary>char\t</summary>    \r\n- <summary>class*</summary>    \r\n- <summary>const</summary>    \r\n- <summary>continue</summary>    \r\n- <summary>debugger</summary>    \r\n- <summary>default</summary>    \r\n- <summary>delete</summary>    \r\n- <summary>do</summary>    \r\n- <summary>double</summary>    \r\n- <summary>else</summary>    \r\n- <summary>enum*</summary>    \r\n- <summary>eval</summary>    \r\n- <summary>export*</summary>    \r\n- <summary>extends*</summary>    \r\n- <summary>false</summary>    \r\n- <summary>final</summary>    \r\n- <summary>finally</summary>    \r\n- <summary>float\tfor\tfunction</summary>    \r\n- <summary>goto</summary>    \r\n- <summary>if</summary>    \r\n- <summary>implements</summary>    \r\n- <summary>import*</summary>    \r\n- <summary>in</summary>    \r\n- <summary>interface</summary>    \r\n- <summary>int\t</summary>    \r\n- <summary>let*</summary>    \r\n- <summary>long</summary>    \r\n- <summary>native\t</summary>    \r\n- <summary>new</summary>    \r\n- <summary>null</summary>    \r\n- <summary>package</summary>    \r\n- <summary>private</summary>    \r\n- <summary>protected</summary>    \r\n- <summary>public</summary>    \r\n- <summary>return</summary>    \r\n- <summary>short</summary>    \r\n- <summary>static</summary>    \r\n- <summary>super*</summary>    \r\n- <summary>switch</summary>    \r\n- <summary>synchronized</summary>    \r\n- <summary>this</summary>    \r\n- <summary>throw\t</summary>    \r\n- <summary>transient\t</summary>    \r\n- <summary>true</summary>    \r\n- <summary>try</summary>    \r\n- <summary>typeof</summary>    \r\n- <summary>var</summary>    \r\n- <summary>void</summary>    \r\n- <summary>volatile</summary>    \r\n- <summary>while</summary>    \r\n- <summary>with\t</summary>    \r\n- <summary>yield</summary>    \r\n</details>\r\n"
+                "<h2 align=\"center\"><b>Javascript Keywords</b> </h2> \r\n\r\nKeywords တွေဆိုတာ သူတို့ရဲ့ သက်ဆိုင်ရာ tasks တွေကို လုပ်ဆောင်ဖို့ သီးသန့် reserve လုပ်ထားတဲ့ အရာတွေပါ၊ သူတို့နာမည်ကို သုံးပြီးတော့ variable name ပေးတာတို့, function declare တာတို့လုပ်လို့မရပါဘူး။ အောက်ကဟာတွေအကုန်လုံးက javascript ရဲ့ reserved လုပ်ထားတဲ့ keyword တွေပါ\r\n\r\n<details>\r\n<summary>see all keywords +</summary>    \r\n\r\n- <summary>abstract</summary>    \r\n- <summary>arguments</summary>    \r\n- <summary>await*</summary>    \r\n- <summary>boolean</summary>    \r\n- <summary>break</summary>    \r\n- <summary>byte</summary>    \r\n- <summary>case</summary>    \r\n- <summary>catch</summary>    \r\n- <summary>char\t</summary>    \r\n- <summary>class*</summary>    \r\n- <summary>const</summary>    \r\n- <summary>continue</summary>    \r\n- <summary>debugger</summary>    \r\n- <summary>default</summary>    \r\n- <summary>delete</summary>    \r\n- <summary>do</summary>    \r\n- <summary>double</summary>    \r\n- <summary>else</summary>    \r\n- <summary>enum*</summary>    \r\n- <summary>eval</summary>    \r\n- <summary>export*</summary>    \r\n- <summary>extends*</summary>    \r\n- <summary>false</summary>    \r\n- <summary>final</summary>    \r\n- <summary>finally</summary>    \r\n- <summary>float\tfor\tfunction</summary>    \r\n- <summary>goto</summary>    \r\n- <summary>if</summary>    \r\n- <summary>implements</summary>    \r\n- <summary>import*</summary>    \r\n- <summary>in</summary>    \r\n- <summary>interface</summary>    \r\n- <summary>int\t</summary>    \r\n- <summary>let*</summary>    \r\n- <summary>long</summary>    \r\n- <summary>native\t</summary>    \r\n- <summary>new</summary>    \r\n- <summary>null</summary>    \r\n- <summary>package</summary>    \r\n- <summary>private</summary>    \r\n- <summary>protected</summary>    \r\n- <summary>public</summary>    \r\n- <summary>return</summary>    \r\n- <summary>short</summary>    \r\n- <summary>static</summary>    \r\n- <summary>super*</summary>    \r\n- <summary>switch</summary>    \r\n- <summary>synchronized</summary>    \r\n- <summary>this</summary>    \r\n- <summary>throw\t</summary>    \r\n- <summary>transient\t</summary>    \r\n- <summary>true</summary>    \r\n- <summary>try</summary>    \r\n- <summary>typeof</summary>    \r\n- <summary>var</summary>    \r\n- <summary>void</summary>    \r\n- <summary>volatile</summary>    \r\n- <summary>while</summary>    \r\n- <summary>with\t</summary>    \r\n- <summary>yield</summary>    \r\n</details>\r\n"
             ],
             "outputs": []
         },
         {
             "language": "markdown",
             "source": [
-                "# Operators\r\n\r\n- logical operators\r\n    - <, >\r\n    - ==, ===\r\n    - !==\r\n    - !null, !undefined, !true, !false\r\n    - ||\r\n    - &&\r\n    - ??\r\n- Increment operators\r\n    - ++\r\n    - +=\r\n    - *=\r\n- type coercion\r\n"
+                "<h2 align=\"center\"><b>Operators</b> </h2> \r\n\r\n# all operators\r\n\r\n- Mathematical operators\r\n    - \"+\"\r\n    - \"-\"\r\n    - \"*\"\r\n    - \"/\"\r\n    - \"**\"\r\n    - \"++\"\r\n    - \"+=\"\r\n    - \"*=\"\r\n- comparison operators\r\n    - \"<\", \">\"\r\n    - \"==\", \"===\"\r\n    - \"!==\"\r\n    \r\n- type coercion\r\n    - truthy values\r\n    - falsy values\r\n\r\n- logical operators\r\n    - \"||\"\r\n    - \"&&\"\r\n    - !null, !undefined, !true, !false\r\n    \r\n- unary operators\r\n    - !\r\n    - +, -\r\n- nullish coalescing logical assignments\r\n    - \"??\"\r\n    - \"&&=\"\r\n    - \"||=\""
             ],
             "outputs": []
         },
         {
             "language": "markdown",
             "source": [
-                "# Condition statements\r\n\r\n### if else statements\r\n\r\n\r\n### switch statements\r\nIf else statement နဲ့ အလုပ်လုပ်ပုံချင်း အတူတူပဲဖြစ်ပါတယ်။ switch ကိုတော့ nested if else တွေ များလာရင် clean ဖြစ်အောင်လို့ အသုံးပြုတာပဲဖြစ်ပါတယ်။\r\nswitch keyword ရဲ့ဘေးက argument ထဲမှာ ထည့်ထားတဲ့ variable ပေါ်မှာမူတည်ပြီးတော့ အောက်က case တွေထဲက သူနဲ့ ပထမဆုံး ညီတဲ့ case ရဲ့ statement ကိုယူတာဖြစ်ပါတယ်။\r\nreturn or break keyword ကိုမဖြစ်မနေထည့်ပေးရပါတယ်၊ \r\n\r\n#### Example 1\r\n\r\nဒီအောက်က example မှာ switch parameter မှာ ပေးထားတဲ့ condition က \"ramen\" ဖြစ်တဲ့အတွက် အောက်က case တွေထဲကမှာ \"ramen\" ဖြစ်တဲ့ case ကိုယူမှာဖြစ်ပါ။\r\n\r\n```js\r\nconst food = \"ramen\";\r\n\r\nswitch (food) {\r\n   case \"ramen\":\r\n      return console.log(\"Itadaikimasu 🍝\");\r\n   case \"pizza\":\r\n      return console.log(\"Here is a pizza 🍕\");\r\n   case \"burger\":\r\n      return console.log(\"Enjoy your burger 🍔\");\r\n   case \"doughnut\":\r\n      return console.log(\"Take a doughnut 🍩\");\r\n   default:\r\n      return console.log(\"Looks like you'r not hungry\");\r\n}\r\n\r\n// in console it will show-> \"Itadaikimasu 🍝\"\r\n\r\n```\r\n\r\n#### Example 2\r\n\r\nဒီ example မှာတော့ switch parameter မှာ ပေးထားတဲ့ condition က true ဖြစ်တဲ့အတွက် အောက်က case တွေထဲကမှာ ပထမဆုံး true ဖြစ်တဲ့ case ကိုယူမှာဖြစ်ပါတယ်။\r\n\r\n```js\r\nconst score = 30;\r\n\r\nswitch (true) {\r\n   case score >= 80:\r\n      return console.log(\"A+\");\r\n   case score >= 60:\r\n      return console.log(\"B+\");\r\n   case score >= 40:\r\n      return console.log(\"B\");\r\n   case score >= 20:\r\n      return console.log(\"F\");\r\n   default:\r\n      return console.log(\"You are expelled!!\");\r\n}\r\n\r\n```\r\n\r\n### ternary operator\r\n\r\nif else လိုသဘောတရားအတိုင်းပါပဲ syntax ပဲကွဲပြားတာပါ၊ သူတို့တွေကို inline statement တွေအဖြစ်ပဲအသုံးပြုပါတယ်။\r\n\r\n\r\n```js\r\n\r\n\r\nconst number = 3\r\n\r\nconst isGreaterThan5 = number > 5 ? \"greater than five\" : \"less than five\"\r\n\r\nconsole.log(isGreaterThan5) // less than five\r\n\r\n```\r\n\r\nဒီမှာလဲ nested တွေထည့်လို့ရပါတယ်၊ ဒါပေမယ့် အရမ်းများလာရင်တော့ ကြည့်ရတာ ရှုပ်လာနိုင်ပါတယ်။\r\n\r\n```js\r\n\r\nconst person = \"tony\"\r\n\r\nconst isFavoriteHero = person === \"tony\" ? \"iron man\" : person === \"steve\" ? \"captain\" : person === \"natasha\" ? \"black widow\" : \"I don't know this person\"\r\n\r\nconsole.log(isFavoriteHero) // \"iron man\"\r\n\r\n\r\n\r\n```\r\n\r\n\r\n"
+                "## Mathematical operators"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "var sum = 5 + 3; // ပေါင်းခြင်း ရလဒ် 8\r\nvar difference = 10 - 4; // နှုတ်ခြင်း ရလဒ်is 6\r\nvar product = 7 * 2; // မြှောက်ခြင်း ရလဒ် is 14\r\nvar quotient = 12 / 3; // စားကိန်း 4\r\nvar remainder = 17 % 5; // အကြွင်း 2\r\nvar result = 2 ** 3; // ထပ်ကိန်း 8"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## Increment, decrement operators\r\n\r\nအဓိကကတော့ numerical value တွေကို တန်ဖိုးတိုး, လျော့ လုပ်သွားဖို့ပါ၊ သူကတကယ်တော့ တန်ဖိုးအသစ် ပြန် assign ချပေးတာဖြစ်လို့ const နဲ့ declare  လုပ်ထားတဲ့ variable တွေမှာ သုံးလို့မရပါ။"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// how it actually works\r\nlet a = 1\r\na = a + 1\r\na = a + 1\r\na = a + 1\r\nconsole.log(a) // 4"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// const a = 1 will throw an error\r\nlet a = 1\r\na++\r\na++\r\na++\r\nconsole.log(a) // 4"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Same thing\r\nlet a = 1\r\na += 1\r\na += 1\r\na += 1\r\nconsole.log(a) // 4"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let a = 1\r\na *= 2\r\na *= 3\r\na *= 4\r\nconsole.log(a) // 24"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let a = 10\r\na--\r\na--\r\na--\r\na -= 3\r\nconsole.log(a) // 4"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let a = 12\r\n\r\na /= 2 // 6\r\na /= 2 // 3\r\na /= 3 // 1\r\n\r\nconsole.log(a) // 1"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## Using with string"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let a = \"A\"\r\na += \" quick\"\r\na += \" brown\"\r\na += \" fox\"\r\na += \" jumps\"\r\na += \" over\"\r\na += \" a\"\r\na += \" lazy\"\r\na += \" dog\"\r\na += \".\"\r\nconsole.log(a) // A quick brown fox jumps over a lazy dog."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## Comparison operators\r\n\r\ncomparison operator က true or false return value တွေပြန်ပေးတယ်"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "3 < 5; // true\r\n5 < 3; // false\r\n5 >= 3; // true\r\n3 <= 5; // true\r\n1 === 1 // true\r\n2 !== 3 // true"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## truthy and falsy values in javascript\r\n\r\ntruthy, falsy ဆိုတာ.. တစ်ခါတစ်ရံ ကိုယ်က assign ချတာမဟုတ်ပဲ task တစ်ခုခုကို run လိုက်လို့ ပြန်ထွက်လာတဲ့ variable တစ်ခုရဲ့ တန်ဖိုးက undefined, null ဖြစ်နေတာမျိုးမဟုတ်ပေမယ့်လဲ, လက်တွေ့ အသုံးဝင်တယ့် တန်ဖိုး တစ်ခု ဟုတ်မနေရင် အဲဒီ ကို variable အသုံးပြုပြီး ဆက်လုပ်ရမယ့်နောက် task တွေမှာ မလိုလားအပ်တဲ့ bug တွေဖြစ်မလာအောင် javascript က type coercion ဆိုတဲ့ feature ကနေထုတ်ပေးတဲ့ တန်ဖိုးတွေဖြစ်ပါတယ်။ ဥပမာဆိုပါစို့ \"\" ဒါလေးက empty string လေးဆိုတော့၊ သူ့ထဲမှာဘာမှရှိမနေတော့ သူနဲ့ပက်သတ်ပြီးဆက်လုပ်ဖို့ တခြား task တွေက ဘာမှ မရှိတဲ့ empty string ကြီးကို ဘာမှဆက်လုပ်လို့မရတာကြောင့်, bug တွေဖြစ်တိုင်ပါတယ်။\r\nအကယ်၍ empty string သာမဖြစ်ခဲ့ရင်တော့ result တွေကမျှော်လင့်တဲ့အတိုင်း ထွက်လာမှာပါ။ ဆိုတော့ အဲဒီ variable လေးကို empty string ဖြစ်လာမဖြစ်လား ဖြစ်ရင်တခြားဟာပြောင်းပေး၊ မဖြစ်ရင်တော့ အဲဒီ တန်ဖိုးကိုပဲယူမယ် အစရှိသဖြင့် dynamically assign ချတဲ့ အခါ အတိုခေါက်ရေးတဲ့ operator တွေအောက်မှာ တွေ့ရမှာပါ\r\n\r\nလောလောဆယ် ဘာတွေကတော့ truthy, ဘာတွေကတော့ falsy ဖြစ်တယ်ဆိုတဲ့ အရာတွေကို အရင်သိရပါမယ်။\r\n \r\nlogical operator တွေသုံးပြီး variable တွေကို dynamically assign ချဖို့ရုံလောက် အသုံးဝင်တာမျိုးမဟုတ်ပဲ၊ အရေးကြီးတဲ့ programming concept တစ်ခုဖြစ်လို့ မှတ်သားစရာကောင်းပါတယ်။\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "မှတ်ချက်။ ။ truthy, fasly ဆို javascript feature တစ်ခုဖြစ်တဲ့ type coercion ကနေထုတ်လုပ်ပေးတဲ့ တန်ဖိုးတွေသက်သက်ဖြစ်လို့ console မှာ စမ်းချင်ရင် if statement တွေပဲစမ်းလို့ရပါတယ်။ \r\n\r\n1) Truthy values\r\n    - non-empty string\r\n    - non zero integers\r\n    - objects ([], {}) even empty\r\n    - functions that returns truthy values\r\n    - non invoked functions\r\n    - true\r\n\r\n1) Falsy values\r\n    - empty string\r\n    - null, undefined\r\n    - Nan\r\n    - false"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let a = \"\"\r\n\r\nif(a){\r\n   console.log(\"it doesn't work\")\r\n}\r\n\r\na = \"hello\"\r\n\r\n// this block will run\r\nif(a){\r\n   console.log(\"it works now\")\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let a = [];\r\nif (a) {\r\n   console.log(\"it works\");\r\n}\r\na ={}\r\nif (a) {\r\n   console.log(\"it works here too\");\r\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let a = function (a) {\r\n    return a;\r\n };\r\n \r\n//  will not run\r\n if (a()) {\r\n    console.log(\"it doesn't work\");\r\n }\r\n \r\n \r\n//  will run\r\n if (a) {\r\n    console.log(\"it works now\");\r\n }\r\n "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## Logical operators"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "\r\nlogical operator တွေက အလွန် အသုံးဝင်တဲ့ operator တွေဖြစ်ပါတယ်။ code block တွေကို execute လုပ်သင့်မလုပ် decision တွေနဲ့ တခြား conditional, logical variable assignment, test condition တွေမှာ အမြဲသုံးပါတယ်။ condition ဆိုတဲ့နေရာမှာ true, false ဆိုတဲ့အပြင်ကိုမှ အခြေ ၂ ခုထက်ပိုတဲ့ decision making condition တွေလဲများစွာရှိနိုင်တာကြောင့် သူတို့ကို အသုံးပြုတွေလဲ ကျယ်ပြန့်ပါတယ်။"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "\"&\" AND operator ရှေ့ condition truthy ဖြစ်မှ နောက် condition ကို ယူတယ်။ တစ်ခုမှ truthy မဖြစ်ရင် left ကဟာကိုယူတယ်။"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "true && true;   // true\r\ntrue && false;  // false\r\nfalse && true;  // false\r\nfalse && false; // false\r\n\r\nconst a = null && undefined;\r\nconst b = undefined && null;\r\n\r\nconsole.log(a); // null\r\nconsole.log(b); // undefined"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "\"||\" OR operator ရှေ့ ပဲဖြစ်ဖြစ် နောက်ပဲ ဖြစ်ဖြစ် truthy condition ကိုပဲယူတယ်။ သူက တစ်ခုမှ truthy မဖြစ်ရင် right ကဟာကိုယူတယ်။"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "true || true;   // true\r\ntrue || false;  // true\r\nfalse || true;  // true\r\nfalse || false; // false\r\n\r\n\r\nconst a = null || undefined;\r\nconst b = undefined || null;\r\n\r\nconsole.log(a); // undefined\r\nconsole.log(b); // null"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## unary operators\r\n\r\nunary operators တွေက ၂ ဖက် မလိုပဲ၊ တစ်ဖက်ထဲကတန်ဖိုး တစ်ခု ထဲနဲ့ operate လုပ်လို့ရတဲ့ operator တွေဖြစ်ပါတယ်။\r\nအပေါ်က ပြခဲ့တဲ့ ဥပမာတွေထဲက ++, --, **, /=, typeof kwyword တို့အစရှိသည်တို့ကလဲ unary operator တွေပါ။ သူတို့အပြင် အခြားအသုံးဝင် တာတွေလဲရှိပါတယ်။\r\n\r\n- data type ပြောင်းလဲခြင်း\r\n- truthy value ကို falsy ဖြစ်အောင်, falsy value ကို truthy ဖြစ်အောင် negation လှန်ခြင်း"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const string = \"12\"\r\nconst toNumber = +string // it is a number now, 12\r\nconst toNumberNegative = string // it is a number now -12\r\nconst iAmTrue = true\r\nconst iNegate = !iAmTrue // false\r\nconst nothing1 = null\r\nconst nothing2 = undefined\r\nconst negateNull = !nothing1 // true\r\nconst negateNull2 = !nothing2 // true"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## nullish coalescing logical assignment\r\n\r\nvariable တွေကို dynamically assign ချဖို့အတွက်အသုံးပြုတဲ့အခါ သုံးတာပါ။ တစ်ခါတစ်ရံ tasks တစ်ခုကနေ return ပြန်ထွက်လာမယ့် တန်ဖိုးတစ်ခုက ဘာဖြစ်မယ်မှန်း မသိတဲ့အခါ dynamic ဖြစ်အောင်, falsy value တွေမလိုချင်တဲ့အခါ အသုံးပြုတာပါ။"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "?? operator\r\n\r\nသူက left-side variable က null သို့မဟုတ် undefined ဖြစ်နေမှသာ right-side က တန်ဖိုးအသစ်ကိုပြောင်းလဲ သတ်မှတ်မှာဖြစ်တယ်။ "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const thisIsNullSoIWillChangeToSomeTruthyValue = null;\r\nconst defaultValue = \"hello world\";\r\n\r\nconst result = thisIsNullSoIWillChangeToSomeTruthyValue ?? defaultValue;\r\n\r\nconsole.log(result); // \"hello world\""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "အပေါ်ကနဲ့ အောက်ကနဲ့က အတူတူပဲ"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let thisIsNullSoIWillChangeToSomeTruthyValue = null;\r\n\r\nthisIsNullSoIWillChangeToSomeTruthyValue ??= \"hello world\";\r\n\r\nconsole.log(thisIsNullSoIWillChangeToSomeTruthyValue) // hello world"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "&& operator\r\n\r\nသူက left-side variable က truthy ဖြစ်နေမှသာ တန်ဖိုးအသစ်ကိုပြောင်းလဲ သတ်မှတ်မှာဖြစ်တယ်။ မဖြစ်ရင် left-side ကတန်ဖိုးအတိုင်းပဲဆက်ရှိနေမှာဖြစ်တယ်။"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let thisIsNullSoIWillNotChange = null;\r\n\r\nthisIsNullSoIWillNotChange &&= \"hello world\";\r\n\r\nconsole.log(thisIsNullSoIWillNotChange) // null"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let thisIsTrueSoIWillChange = true;\r\n\r\nthisIsTrueSoIWillChange &&= \"hello world\";\r\n\r\nconsole.log(thisIsTrueSoIWillChange) // hello world"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "||= operator \r\n\r\nသူကတော့ ၂ ဖက်လုံးက truthy ဖြစ်တဲ့ တန်ဖိုးတစ်ခုကိုယူတယ် အရင်ဆုံး left-side ကိုကြည့်တယ်၊ truthy ဖြစ်ရင် အဲဖက်က တန်ဖိုးကိုပဲ ယူလိုက်ပြီးတော့၊ falsy တခြားဖက်ကတန်ဖိုးကိုယူတယ်,၂ ဖက်လုံးက falsy ဖြစ်နေရင် right side က တန်ဖိုးကိုယူပါတယ်။ ဒါလေးကတော့ falsy value တွေမလိုချင်တဲ့အခါသုံးတော့ ပိုပြီး အသုံးများတယ်။"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let a= \"\"\r\na ||= \"not empty\"\r\nconsole.log(a) // not empty\r\n\r\nlet b = null\r\nb ||= undefined;\r\nconsole.log(b) // undefined\r\n\r\n\r\nlet c = \"hello\";\r\nc ||= null;\r\nconsole.log(c); // \"hello\""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "<h2 align=\"center\"><b>Condition statements</b> </h2> \r\n\r\n### if else statements\r\n\r\n\r\n### switch statements\r\nIf else statement နဲ့ အလုပ်လုပ်ပုံချင်း အတူတူပဲဖြစ်ပါတယ်။ switch ကိုတော့ nested if else တွေ များလာရင် clean ဖြစ်အောင်လို့ အသုံးပြုတာပဲဖြစ်ပါတယ်။\r\nswitch keyword ရဲ့ဘေးက argument ထဲမှာ ထည့်ထားတဲ့ variable ပေါ်မှာမူတည်ပြီးတော့ အောက်က case တွေထဲက သူနဲ့ ပထမဆုံး ညီတဲ့ case ရဲ့ statement ကိုယူတာဖြစ်ပါတယ်။\r\nreturn or break keyword ကိုမဖြစ်မနေထည့်ပေးရပါတယ်၊ \r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "\r\n\r\n#### Example 1\r\n\r\nဒီအောက်က example မှာ switch parameter မှာ ပေးထားတဲ့ condition က \"ramen\" ဖြစ်တဲ့အတွက် အောက်က case တွေထဲကမှာ \"ramen\" ဖြစ်တဲ့ case ကိုယူမှာဖြစ်ပါ။\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const food = \"ramen\";\r\n\r\nswitch (food) {\r\n   case \"ramen\":\r\n      return console.log(\"Itadaikimasu 🍝\");\r\n   case \"pizza\":\r\n      return console.log(\"Here is a pizza 🍕\");\r\n   case \"burger\":\r\n      return console.log(\"Enjoy your burger 🍔\");\r\n   case \"doughnut\":\r\n      return console.log(\"Take a doughnut 🍩\");\r\n   default:\r\n      return console.log(\"Looks like you'r not hungry\");\r\n}\r\n\r\n// in console it will show-> \"Itadaikimasu 🍝\""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "\r\n#### Example 2\r\n\r\nဒီ example မှာတော့ switch parameter မှာ ပေးထားတဲ့ condition က true ဖြစ်တဲ့အတွက် အောက်က case တွေထဲကမှာ ပထမဆုံး true ဖြစ်တဲ့ case ကိုယူမှာဖြစ်ပါတယ်။\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const score = 30;\r\n\r\nswitch (true) {\r\n   case score >= 80:\r\n      return console.log(\"A+\");\r\n   case score >= 60:\r\n      return console.log(\"B+\");\r\n   case score >= 40:\r\n      return console.log(\"B\");\r\n   case score >= 20:\r\n      return console.log(\"F\");\r\n   default:\r\n      return console.log(\"You are expelled!!\");\r\n}\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "<h3 align=\"center\" style=\"color: blue;\">ကိုယ့် ဥပမာနဲ့ ကိုယ်ပြန်ရေးကြည့်ပါ</h3>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "\r\n---\r\n\r\n### ternary operator\r\n\r\nif else လိုသဘောတရားအတိုင်းပါပဲ syntax ပဲကွဲပြားတာပါ၊ သူတို့တွေကို inline statement တွေအဖြစ်ပဲအသုံးပြုပါတယ်။\r\n\r\n\r\n```js\r\n\r\n\r\nconst number = 3\r\n\r\nconst isGreaterThan5 = number > 5 ? \"greater than five\" : \"less than five\"\r\n\r\nconsole.log(isGreaterThan5) // less than five\r\n\r\n```\r\n\r\nဒီမှာလဲ nested တွေထည့်လို့ရပါတယ်၊ ဒါပေမယ့် အရမ်းများလာရင်တော့ ကြည့်ရတာ ရှုပ်လာနိုင်ပါတယ်။\r\n\r\n```js\r\n\r\nconst person = \"tony\"\r\n\r\nconst isFavoriteHero = person === \"tony\" ? \"iron man\" : person === \"steve\" ? \"captain\" : person === \"natasha\" ? \"black widow\" : \"I don't know this person\"\r\n\r\nconsole.log(isFavoriteHero) // \"iron man\"\r\n\r\n\r\n\r\n```\r\n\r\n\r\n"
             ],
             "outputs": []
         },
@@ -66,7 +409,7 @@
         {
             "language": "markdown",
             "source": [
-                "# **functions**\r\n\r\n### functions တွေကို နည်းလမ်း ၂ မျိုးနဲ့ create လို့ရတယ်၊\r\n\r\n#### Declaration\r\n\r\n```js\r\nfunction fn(){\r\n    console.log(\"I am a function\")\r\n}\r\n\r\n```\r\n\r\n\r\n#### Expression (Anonymous function expression လို့လဲခေါ်တယ်)\r\n```js\r\nconst anonymousFunction = function(){\r\n    console.log(\"I am also a function\")\r\n}\r\n```\r\n\r\n---\r\n\r\n### **calling or invoking**\r\n\r\n    Functions တွေက သူတို့ကို မခေါ်မခြင်းဘာမှလုပ်ဘူး၊ ခေါ်မှ အလုပ်စလုပ်တယ်၊၊ function ကိုခေါ်တယ် ဆိုတာ function name ရယ် \"()\" ရယ်ရေးလိုက်ရုံပဲ\r\n\r\n    \r\n```js\r\nconst fn(){\r\n    // do something\r\n}\r\n\r\nfn() // invoking\r\n\r\n```\r\n\r\n---\r\n\r\n\r\n### **IIFE**\r\n\r\n    **Immediately Invoked Function Expression** လို့ခေါ်တယ်။\r\n    \r\n    function တစ်ခုကို declare ပြီးချက်ချင်း တန်းခေါ်တဲ့ expression ပါ\r\n\r\n```js\r\n\r\n(function immediatelyInvokeFunctionExpression(){\r\n    console.log('I am called immediately, no need to call me sperately\")\r\n})()\r\n\r\n```\r\n\r\n\r\n---\r\n\r\n### **returning values**\r\n\r\n    functions တွေကနေ task run ပြီးတာနဲ့ return values တွေပြန်ထုတ်လို့ရတယ်  **return** ဆိုတဲ့ keyword ကိုသုံးရတယ်. return \r\n\r\n    value က ကြိုက်တာဖြစ်လို့ရတယ်၊ string, number, boolean, objects, null, undefined etc..\r\n\r\n```js\r\nfunction returnValue(){\r\n    return \"I return as a value from this function\"\r\n}\r\n```\r\n\r\n----\r\n\r\n\r\n### **hoisting**\r\n\r\n    hoisting ဆိုတာ သူတို့ကို မဖန်တီးခင်ထဲကနေ သုံးလို့ရနေတာကိုပြောတာ၊ ဥပမာ လက်ရှိ javascript ရေးနေတဲ့ file ရဲ့ **အောက်ဆုံးမှာ \r\n\r\n    function တစ်ခုကို ဖန်တီးလိုက်မယ်**၊ ဒါပေမယ့် အဲဒီ function ကို **ကြိုပြီး အပေါ်မှာတည်းက** ခေါ်သုံးထားလို့ရတာကိုပြောတာပါ။\r\n\r\n**functions keyword နဲ့ declare လုပ်တဲ့ function တွေကပဲ hoist ပါတယ်၊ anonymous functions တွေက တော့ မ hoist ပါဘူး။**\r\n\r\n```js\r\niCanHoist();\r\n\r\nfunction iCanHoist(){\r\n    console.log('I am declared here but I can be called from above\")\r\n}\r\n\r\nconst ICantHoist = function(){\r\n    console.log('I am declared here but I can only be called at below\")\r\n}\r\nICantHoist()\r\n\r\n```\r\n    functions တွေအပြင်, var keyword နဲ့ create လုပ်ထားတဲ့ variable တွေမှာလဲ Hoist လို့ရပါတယ်၊သို့သော်\r\n\r\n    သူ့တို့ကို assign လုပ်တဲ့ value ကတော့ default value ဖြစ်တဲ့ undefined ပဲဖြစ်နေပါမယ်။ မဟုတ်ပဲ တခြား keyword နဲ့ declare \r\n\r\n    ထားတဲ့ variable တွေဆိုရင် အပေါ်မှာကြိုခေါ်ရင် error ပြပါလိမ့်မယ်။\r\n\r\n---\r\n### **arguments & parameters**\r\n\r\n\r\n    function တွေကို ခိုင်း‌စေတဲ့အခါ သူတို့ကို အသုံးပြုစေလိုတဲ့ အရာတွေကိုပါ ထည့်ပေးလို့ရပါတယ်၊ ဥပမာ ဒီဂဏန်းနဲ့ ဟိုဂဏန်းနဲ့ ပေါင်းပါ အစရှိသဖြင့်\r\n\r\n\r\n```js\r\n\r\nfunction sum(num1, num2){\r\n    return num1 + num2\r\n}\r\n\r\n```\r\n#### **Parameter vs argument**\r\n\r\n    အဓိပ္ပာယ် တစ်မျိုးထဲကိုပဲ ရည်ညွန်းပြောဆိုတာဖြစ်လို့ ဆိုလိုရင်းကတော့အတူတူပါပဲ၊ \r\n    \r\n- parameter ဆိုတာကတော့ အဲဒီ function ကို စတင် declare လုပ်ချိန်မှာ \"()\" variable အဖြစ်ပေးတဲ့ actual value ရဲ့ place holder ကိုပြောတာပါ၊\r\n\r\n- argument ဆိုတာ အဲဒီ သက်ဆိုင်ရာ function \r\nကို invoke စလုပ်တဲ့ သုံးဖို့စခေါ်တဲ့အခါ parentheses \"()\" ထဲမှာ ထည့်ပေးတဲ့ actual value ကိုပြောတာဖြစ်ပြီး အဲဒီ function \r\nကို အကြိမ်များစွာ ခေါ်သုံးနေရင် ခေါ်သုံးတဲ့ တစ်ခါတိုင်း အဲဒီ function တစ်ခုစီတိုင်းအတွက် argument တွေလဲ တစ်ခုစီရှိနေတာ \r\nမျိုးကိုပြောချင်တာပါ၊ \r\n\r\n```js\r\n\r\nfunction fnc(iAmAParameter){ // <- parameter\r\n\r\n    console.log(iAmAParameter)\r\n\r\n}\r\n\r\nconst iAmAnArgument1 = 1\r\nconst iAmAnArgument2 = \"world\"\r\nconst iAmAnArgument3 = \"hello\"\r\nconst iAmAnArgument4 = true\r\n\r\nfnc(iAmAnArgument1) // <- argument 1\r\nfnc(iAmAnArgument2) // <- argument 2\r\nfnc(iAmAnArgument3) // <- argument 3\r\nfnc(iAmAnArgument4) // <- argument 4\r\n\r\n```\r\n\r\n---\r\n\r\n### **getting arguments**\r\n\r\n#### arguments keyword \r\n\r\n- arguments ဆိုတဲ့ keyword  နဲ့ function တစ်ခုထဲကိုလာထည့်ထားတဲ့ arguments တွေကို အဲဒီ keyword သုံးပြီး ကြည့်လို့ရတယ်။\r\n\r\n- index based key,value pair ပုံစံနဲ့ Argument object ထဲမှာ ပြန်ပြပေးပါတယ်၊\r\n\r\n```js\r\n\r\nfunction fn(string){\r\n\r\n    console.log(arguments)\r\n}\r\n\r\nfn(\"hello world\", \"I am coding in javascript\", \"it is a really cool language\") \r\n\r\n/**\r\n * return\r\n * [Arguments] {\r\n  '0': 'hello world',\r\n  '1': 'I am coding in javascript',\r\n  '2': 'it is a really cool language'\r\n}\r\n/\r\n```\r\n\r\n#### rest operator\r\n\r\n    - arguments keyword အတိုင်း function တစ်ခုထဲကိုလာထည့်ထားတဲ့ arguments တွေကို ကြည့်ဖို့ပဲ ဒါပေမယ့် သူက array လိုက် return ပြန်ပေးတယ်။ \r\n\r\n    - arguments  \"n\" number အထိကြိုက်သလောက်ထည့်သူက အကုန်လုံးကို arrayထဲထည့်ပြီးပြပေးမှာပါ။\r\n\r\n    - သတိထားစရာသေးသေးလေးတစ်ခုကတော့ သူနဲ့ syntax အတူတူဖြစ်တဲ့ spread operator ဆိုတာလဲရှိပါသေးတယ်။ ၂ ခုလုံးကတော့ iterable object destructuring လုပ်တဲ့အခါသုံးတဲ့အတွက် naming ကတော့ interchangeable သုံးလို့ရပါတယ်။\r\n    \r\n```js\r\n\r\n// rest operator\r\nfunction fn(...number){\r\n\r\n    console.log()\r\n}\r\n\r\nfn(\"hello world\", \"I am coding in javascript\", \"it is a really cool language\")\r\n```\r\n\r\n-----\r\n\r\n\r\n### **default parameter**\r\n\r\n    function တစ်ခုကို စပြီးဖန်တီးတဲ့အခါ နောက်လာမယ့် function call တွေအတွက် argument နေရာမှာ default value ထားထားလို့ရပါတယ်။ \r\n\r\n    သူ့ကို invoke လုပ်တဲ့အခါ ဘာ argument မှမထည့်ပဲခေါ်သုံးရင် သူ့ရဲ့ default value ကိုယူသုံးမှာဖြစ်ပြီးတော့၊ ထည့်ထားရင်တော့ \r\n\r\n    ထည့်လိုက်တဲ့ value ကိုယူသုံးမှာပါ\r\n\r\n```js\r\nfunction doubleIt(num = 2){\r\n    return num * 2\r\n\r\n}\r\n\r\ndoubleIt() // 4\r\ndoubleIt(4) // 8\r\n\r\n```\r\n---\r\n\r\n### **callbacks & higher order functions**\r\n\r\n**callbacks တွေက JavaScript မှာ အရမ်း အရမ်းအရေးကြီးပါတယ်။ JavaScript program တွေရဲ့နေရာတိုင်းနီးပါးမှာ သူတို့ကိုသုံးပါတယ်။**\r\n\r\n    - callback ဆိုတာအရိုးရှင်းဆုံး ရှင်းပြရရင် function တစ်ခုရဲ့ parameter မှာ နောက်ထပ် function တစ်ခု ထည့်ပြီး\r\n\r\n    - ပထမ function run ပြီးသွားတဲ့ အချိန် အဲဒီထည့်ထားတဲ့ function ကိုဆက် run စေတာပါ\r\n\r\n    - higher order function ကတော့ callbacks တွေကို သူ့ parameter ထဲမှာလက်ခံပြီး run ပေးတဲ့ parent function တစ်ခုပါ\r\n\r\n```js\r\n\r\n// higher order function\r\nfunction firstFunction(secondFunction){\r\n    \r\n    console.log(\"I run first\")\r\n\r\n    secondFunction()\r\n}\r\n\r\n// callback function\r\nfunction anotherFunction(){\r\n    console.log(\"I run second, and I am a callback function.\")\r\n}\r\n\r\nfirstFunction(anotherFunction)\r\n\r\n```\r\n    အနောက်က callback function ထဲမှာ ကိုယ်လိုတဲ့ argument တွေထပ်ထည့်လို့ရသေးတယ်\r\n\r\n```js\r\n\r\nfunction firstFunction(secondFunction, name){\r\n    \r\n    secondFunction(name.toUpperCase())\r\n}\r\n\r\nfunction callback(name){\r\n    console.log(\"My name is\", name)\r\n}\r\n\r\nfirstFunction(callback, \"castro\")\r\n\r\n\r\n```\r\none more example..\r\n\r\n```js\r\n// ဒါတွေက callback functions တွေ\r\nfunction divide(number1, number2){\r\n    return number1 / number2\r\n}\r\n\r\nfunction multiply(number1, number2){\r\n    return number1 * number2\r\n}\r\n// ဒါက higher order function\r\nfunction calculate(num1, num2, operator){\r\n\r\n    return operator(num1, num2)\r\n}\r\n\r\n\r\n\r\n```\r\n\r\n---\r\n\r\n\r\n### **arrow functions**\r\n\r\n    - arrow functions တွေဆိုတာ normal function တွေလိုပါပဲ၊ ဒါပေမယ့် **function keyword** ကိုသုံးစရာမလိုပဲ ပုံမှန် variable declare လုပ်သလိုမျိုး ဖန်တီးနိုင်ပါတယ်။\r\n\r\n    - arrow functions တွေက ကြည့်ရတာ ပိုပြီး clean ဖြစ်ပါတယ်။\r\n    \r\n    - အကြီးမားဆုံးကွာခြားချက်က **this**  ဆိုတဲ့ keyword ကို အသုံးပြုဖို့လိုလာတဲ့ အချိန်မှပဲ ကွဲပြားချက်လေးတွေ ဖြစ်လာတာပါ. \r\n    (**this** keyword ကိုတော့ဒီ section မှာအကျယ်ရှင်းပြလို့မရသေးပါ. သို့သော် ဥပမာတွေတော့ ပါပါမယ်။ module 2မှာ ဆက်ပြီးတော့ အကျယ်ရှင်းပြသွားပါမယ်။)\r\n    \r\n    - arrow functions are **not** hoisted.\r\n\r\n```js\r\nconst arrowFn = () => {\r\n    console.log(\"I am an arrow function\")\r\n}\r\n\r\narrowFn()\r\n```\r\n\r\n\r\n#### one line return code\r\n```js\r\n// with arrow function,\r\n// you will need a parentheses for some case. but mostly it does't matter\r\nconst isOdd = num => num % 2 === 0\r\n\r\n// with normal function\r\nconst isOdd = function (num) {return num % 2 === 0;};\r\n\r\n\r\n```\r\n\r\n\r\n### what's coming more in next module\r\n- #### currying\r\n- #### closure\r\n- #### recursion\r\n- #### constructor functions and \"this\" keyword\r\n- #### thenables callbacks\r\n- #### async functions\r\n- #### custom methods"
+                "<h2 align=\"center\"><b>Functions</b> </h2> \r\n\r\n### functions တွေကို နည်းလမ်း ၂ မျိုးနဲ့ create လို့ရတယ်၊\r\n\r\n#### Declaration\r\n\r\n```js\r\nfunction fn(){\r\n    console.log(\"I am a function\")\r\n}\r\n\r\n```\r\n\r\n\r\n#### Expression (Anonymous function expression လို့လဲခေါ်တယ်)\r\n```js\r\nconst anonymousFunction = function(){\r\n    console.log(\"I am also a function\")\r\n}\r\n```\r\n\r\n---\r\n\r\n### **calling or invoking**\r\n\r\n    Functions တွေက သူတို့ကို မခေါ်မခြင်းဘာမှလုပ်ဘူး၊ ခေါ်မှ အလုပ်စလုပ်တယ်၊၊ function ကိုခေါ်တယ် ဆိုတာ function name ရယ် \"()\" ရယ်ရေးလိုက်ရုံပဲ\r\n\r\n    \r\n```js\r\nconst fn(){\r\n    // do something\r\n}\r\n\r\nfn() // invoking\r\n\r\n```\r\n\r\n---\r\n\r\n\r\n### **IIFE**\r\n\r\n    **Immediately Invoked Function Expression** လို့ခေါ်တယ်။\r\n    \r\n    function တစ်ခုကို declare ပြီးချက်ချင်း တန်းခေါ်တဲ့ expression ပါ\r\n\r\n```js\r\n\r\n(function immediatelyInvokeFunctionExpression(){\r\n    console.log('I am called immediately, no need to call me sperately\")\r\n})()\r\n\r\n```\r\n\r\n\r\n---\r\n\r\n### **returning values**\r\n\r\n    functions တွေကနေ task run ပြီးတာနဲ့ return values တွေပြန်ထုတ်လို့ရတယ်  **return** ဆိုတဲ့ keyword ကိုသုံးရတယ်. return \r\n\r\n    value က ကြိုက်တာဖြစ်လို့ရတယ်၊ string, number, boolean, objects, null, undefined etc..\r\n\r\n```js\r\nfunction returnValue(){\r\n    return \"I return as a value from this function\"\r\n}\r\n```\r\n\r\n----\r\n\r\n\r\n### **hoisting**\r\n\r\n    hoisting ဆိုတာ သူတို့ကို မဖန်တီးခင်ထဲကနေ သုံးလို့ရနေတာကိုပြောတာ၊ ဥပမာ လက်ရှိ javascript ရေးနေတဲ့ file ရဲ့ **အောက်ဆုံးမှာ \r\n\r\n    function တစ်ခုကို ဖန်တီးလိုက်မယ်**၊ ဒါပေမယ့် အဲဒီ function ကို **ကြိုပြီး အပေါ်မှာတည်းက** ခေါ်သုံးထားလို့ရတာကိုပြောတာပါ။\r\n\r\n**functions keyword နဲ့ declare လုပ်တဲ့ function တွေကပဲ hoist ပါတယ်၊ anonymous functions တွေက တော့ မ hoist ပါဘူး။**\r\n\r\n```js\r\niCanHoist();\r\n\r\nfunction iCanHoist(){\r\n    console.log('I am declared here but I can be called from above\")\r\n}\r\n\r\nconst ICantHoist = function(){\r\n    console.log('I am declared here but I can only be called at below\")\r\n}\r\nICantHoist()\r\n\r\n```\r\n    functions တွေအပြင်, var keyword နဲ့ create လုပ်ထားတဲ့ variable တွေမှာလဲ Hoist လို့ရပါတယ်၊သို့သော်\r\n\r\n    သူ့တို့ကို assign လုပ်တဲ့ value ကတော့ default value ဖြစ်တဲ့ undefined ပဲဖြစ်နေပါမယ်။ မဟုတ်ပဲ တခြား keyword နဲ့ declare \r\n\r\n    ထားတဲ့ variable တွေဆိုရင် အပေါ်မှာကြိုခေါ်ရင် error ပြပါလိမ့်မယ်။\r\n\r\n---\r\n### **arguments & parameters**\r\n\r\n\r\n    function တွေကို ခိုင်း‌စေတဲ့အခါ သူတို့ကို အသုံးပြုစေလိုတဲ့ အရာတွေကိုပါ ထည့်ပေးလို့ရပါတယ်၊ ဥပမာ ဒီဂဏန်းနဲ့ ဟိုဂဏန်းနဲ့ ပေါင်းပါ အစရှိသဖြင့်\r\n\r\n\r\n```js\r\n\r\nfunction sum(num1, num2){\r\n    return num1 + num2\r\n}\r\n\r\n```\r\n#### **Parameter vs argument**\r\n\r\n    အဓိပ္ပာယ် တစ်မျိုးထဲကိုပဲ ရည်ညွန်းပြောဆိုတာဖြစ်လို့ ဆိုလိုရင်းကတော့အတူတူပါပဲ၊ \r\n    \r\n- parameter ဆိုတာကတော့ အဲဒီ function ကို စတင် declare လုပ်ချိန်မှာ \"()\" variable အဖြစ်ပေးတဲ့ actual value ရဲ့ place holder ကိုပြောတာပါ၊\r\n\r\n- argument ဆိုတာ အဲဒီ သက်ဆိုင်ရာ function \r\nကို invoke စလုပ်တဲ့ သုံးဖို့စခေါ်တဲ့အခါ parentheses \"()\" ထဲမှာ ထည့်ပေးတဲ့ actual value ကိုပြောတာဖြစ်ပြီး အဲဒီ function \r\nကို အကြိမ်များစွာ ခေါ်သုံးနေရင် ခေါ်သုံးတဲ့ တစ်ခါတိုင်း အဲဒီ function တစ်ခုစီတိုင်းအတွက် argument တွေလဲ တစ်ခုစီရှိနေတာ \r\nမျိုးကိုပြောချင်တာပါ၊ \r\n\r\n```js\r\n\r\nfunction fnc(iAmAParameter){ // <- parameter\r\n\r\n    console.log(iAmAParameter)\r\n\r\n}\r\n\r\nconst iAmAnArgument1 = 1\r\nconst iAmAnArgument2 = \"world\"\r\nconst iAmAnArgument3 = \"hello\"\r\nconst iAmAnArgument4 = true\r\n\r\nfnc(iAmAnArgument1) // <- argument 1\r\nfnc(iAmAnArgument2) // <- argument 2\r\nfnc(iAmAnArgument3) // <- argument 3\r\nfnc(iAmAnArgument4) // <- argument 4\r\n\r\n```\r\n\r\n---\r\n\r\n### **getting arguments**\r\n\r\n#### arguments keyword \r\n\r\n- arguments ဆိုတဲ့ keyword  နဲ့ function တစ်ခုထဲကိုလာထည့်ထားတဲ့ arguments တွေကို အဲဒီ keyword သုံးပြီး ကြည့်လို့ရတယ်။\r\n\r\n- index based key,value pair ပုံစံနဲ့ Argument object ထဲမှာ ပြန်ပြပေးပါတယ်၊\r\n\r\n```js\r\n\r\nfunction fn(string){\r\n\r\n    console.log(arguments)\r\n}\r\n\r\nfn(\"hello world\", \"I am coding in javascript\", \"it is a really cool language\") \r\n\r\n/**\r\n * return\r\n * [Arguments] {\r\n  '0': 'hello world',\r\n  '1': 'I am coding in javascript',\r\n  '2': 'it is a really cool language'\r\n}\r\n/\r\n```\r\n\r\n#### rest operator\r\n\r\n    - arguments keyword အတိုင်း function တစ်ခုထဲကိုလာထည့်ထားတဲ့ arguments တွေကို ကြည့်ဖို့ပဲ ဒါပေမယ့် သူက array လိုက် return ပြန်ပေးတယ်။ \r\n\r\n    - arguments  \"n\" number အထိကြိုက်သလောက်ထည့်သူက အကုန်လုံးကို arrayထဲထည့်ပြီးပြပေးမှာပါ။\r\n\r\n    - သတိထားစရာသေးသေးလေးတစ်ခုကတော့ သူနဲ့ syntax အတူတူဖြစ်တဲ့ spread operator ဆိုတာလဲရှိပါသေးတယ်။ ၂ ခုလုံးကတော့ iterable object destructuring လုပ်တဲ့အခါသုံးတဲ့အတွက် naming ကတော့ interchangeable သုံးလို့ရပါတယ်။\r\n    \r\n```js\r\n\r\n// rest operator\r\nfunction fn(...number){\r\n\r\n    console.log()\r\n}\r\n\r\nfn(\"hello world\", \"I am coding in javascript\", \"it is a really cool language\")\r\n```\r\n\r\n-----\r\n\r\n\r\n### **default parameter**\r\n\r\n    function တစ်ခုကို စပြီးဖန်တီးတဲ့အခါ နောက်လာမယ့် function call တွေအတွက် argument နေရာမှာ default value ထားထားလို့ရပါတယ်။ \r\n\r\n    သူ့ကို invoke လုပ်တဲ့အခါ ဘာ argument မှမထည့်ပဲခေါ်သုံးရင် သူ့ရဲ့ default value ကိုယူသုံးမှာဖြစ်ပြီးတော့၊ ထည့်ထားရင်တော့ \r\n\r\n    ထည့်လိုက်တဲ့ value ကိုယူသုံးမှာပါ\r\n\r\n```js\r\nfunction doubleIt(num = 2){\r\n    return num * 2\r\n\r\n}\r\n\r\ndoubleIt() // 4\r\ndoubleIt(4) // 8\r\n\r\n```\r\n---\r\n\r\n### **callbacks & higher order functions**\r\n\r\n**callbacks တွေက JavaScript မှာ အရမ်း အရမ်းအရေးကြီးပါတယ်။ JavaScript program တွေရဲ့နေရာတိုင်းနီးပါးမှာ သူတို့ကိုသုံးပါတယ်။**\r\n\r\n    - callback ဆိုတာအရိုးရှင်းဆုံး ရှင်းပြရရင် function တစ်ခုရဲ့ parameter မှာ နောက်ထပ် function တစ်ခု ထည့်ပြီး\r\n\r\n    - ပထမ function run ပြီးသွားတဲ့ အချိန် အဲဒီထည့်ထားတဲ့ function ကိုဆက် run စေတာပါ\r\n\r\n    - higher order function ကတော့ callbacks တွေကို သူ့ parameter ထဲမှာလက်ခံပြီး run ပေးတဲ့ parent function တစ်ခုပါ\r\n\r\n```js\r\n\r\n// higher order function\r\nfunction firstFunction(secondFunction){\r\n    \r\n    console.log(\"I run first\")\r\n\r\n    secondFunction()\r\n}\r\n\r\n// callback function\r\nfunction anotherFunction(){\r\n    console.log(\"I run second, and I am a callback function.\")\r\n}\r\n\r\nfirstFunction(anotherFunction)\r\n\r\n```\r\n    အနောက်က callback function ထဲမှာ ကိုယ်လိုတဲ့ argument တွေထပ်ထည့်လို့ရသေးတယ်\r\n\r\n```js\r\n\r\nfunction firstFunction(secondFunction, name){\r\n    \r\n    secondFunction(name.toUpperCase())\r\n}\r\n\r\nfunction callback(name){\r\n    console.log(\"My name is\", name)\r\n}\r\n\r\nfirstFunction(callback, \"castro\")\r\n\r\n\r\n```\r\none more example..\r\n\r\n```js\r\n// ဒါတွေက callback functions တွေ\r\nfunction divide(number1, number2){\r\n    return number1 / number2\r\n}\r\n\r\nfunction multiply(number1, number2){\r\n    return number1 * number2\r\n}\r\n// ဒါက higher order function\r\nfunction calculate(num1, num2, operator){\r\n\r\n    return operator(num1, num2)\r\n}\r\n\r\n\r\n\r\n```\r\n\r\n---\r\n\r\n\r\n### **arrow functions**\r\n\r\n    - arrow functions တွေဆိုတာ normal function တွေလိုပါပဲ၊ ဒါပေမယ့် **function keyword** ကိုသုံးစရာမလိုပဲ ပုံမှန် variable declare လုပ်သလိုမျိုး ဖန်တီးနိုင်ပါတယ်။\r\n\r\n    - arrow functions တွေက ကြည့်ရတာ ပိုပြီး clean ဖြစ်ပါတယ်။\r\n    \r\n    - အကြီးမားဆုံးကွာခြားချက်က **this**  ဆိုတဲ့ keyword ကို အသုံးပြုဖို့လိုလာတဲ့ အချိန်မှပဲ ကွဲပြားချက်လေးတွေ ဖြစ်လာတာပါ. \r\n    (**this** keyword ကိုတော့ဒီ section မှာအကျယ်ရှင်းပြလို့မရသေးပါ. သို့သော် ဥပမာတွေတော့ ပါပါမယ်။ module 2မှာ ဆက်ပြီးတော့ အကျယ်ရှင်းပြသွားပါမယ်။)\r\n    \r\n    - arrow functions are **not** hoisted.\r\n\r\n```js\r\nconst arrowFn = () => {\r\n    console.log(\"I am an arrow function\")\r\n}\r\n\r\narrowFn()\r\n```\r\n\r\n\r\n#### one line return code\r\n```js\r\n// with arrow function,\r\n// you will need a parentheses for some case. but mostly it does't matter\r\nconst isOdd = num => num % 2 === 0\r\n\r\n// with normal function\r\nconst isOdd = function (num) {return num % 2 === 0;};\r\n\r\n\r\n```\r\n\r\n\r\n### what's coming more about functins in next module..\r\n- #### currying\r\n- #### closure\r\n- #### recursion\r\n- #### constructor functions and \"this\" keyword\r\n- #### thenables callbacks\r\n- #### async functions\r\n- #### custom methods"
             ],
             "outputs": []
         },
@@ -236,7 +579,14 @@
         {
             "language": "markdown",
             "source": [
-                "### nested loops\r\n"
+                "### nested loops\r\n\r\nloop တစ်ခုထဲမှာက တစ်ခုထက်ပိုတဲ့ တခြား nested loop တွေ ထည့်လို့ရပါသေးတယ်။ ကိုယ်လိုရာ အကြောင်းအရာပေါ်မူတည်ပြီး အသုံးပြုနိုင်ပါတယ်။"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "for (let i = 1; i <= 5; i++) {\r\n    let stars = \"\";\r\n    for (let j = 1; j <= i; j++) {\r\n       stars += \"*\";\r\n    }\r\n    console.log(stars);\r\n }\r\n \r\n//  printing stars patterns\r\n\r\n/**\r\n    *\r\n    **\r\n    ***\r\n    ****\r\n    *****\r\n */"
             ],
             "outputs": []
         },
@@ -687,7 +1037,7 @@
         {
             "language": "javascript",
             "source": [
-                "const string = \"I-am-89-years old,I--have--()=>a-dog/and-4=daughters,\"\r\n\r\n\r\nconst regex = /\\w+/g\r\n\r\nconsole.log(string.match(regex))"
+                "const string = \"I-am-89-years old,I--have--()=>a-dog/and-4=daughters,\"\r\n\r\nconst regex = /\\w+/g\r\n\r\nconsole.log(string.match(regex))"
             ],
             "outputs": []
         },
@@ -701,36 +1051,16 @@
         {
             "language": "markdown",
             "source": [
-                "### Regex Patterns\r\nPattern တွေကိုစစ်ဆေးတာက string.match(regx) ရဲ့အဓိက usecase ဖြစ်ပါတယ်။ အပေါ်မှာ ပြောသွားတဲ့အတိုင်း regex pattern code တွေကို resource ပေါင်းစုံကနေ အလွယ်တကူရနိူင်ပါတယ်။"
+                "using a regex as a parameter inside a function\r\n\r\nfunction argument တွေထဲမှာ regex တွေတိုက်ရိုက်ထည့်လို့မရပါဘူး။ အဲလိုထည့်ချင်ရင်\r\n\r\n```js\r\nnew RegExp()\r\n```\r\n\r\nဆိုတဲ့ constructor function ထဲကိုထည့်ရေးရပါတယ်။"
             ],
             "outputs": []
         },
         {
             "language": "javascript",
             "source": [
-                ""
+                "function replace(rgx, str, replace){\r\n    const regex = new RegExp(rgx)\r\n    return str.replace(regex, replace)\r\n}\r\n\r\nconsole.log(replace(/s/g,\"she sells seashells on the seashore\", \"c\") ) // che cellc ceachellc on the ceachore"
             ],
-            "outputs": [
-                {
-                    "items": [
-                        {
-                            "mime": "application/vnd.code.notebook.stdout",
-                            "value": [
-                                "null",
-                                "null",
-                                "[",
-                                "  'zawinaing.devvv@gmail.com',",
-                                "  index: 0,",
-                                "  input: 'zawinaing.devvv@gmail.com',",
-                                "  groups: undefined",
-                                "]",
-                                "",
-                                ""
-                            ]
-                        }
-                    ]
-                }
-            ]
+            "outputs": []
         },
         {
             "language": "javascript",
@@ -858,42 +1188,104 @@
         {
             "language": "markdown",
             "source": [
-                "# Regex\r\n\r\n### string တစ်ခုက ကိုယ်လိုချင်တာ Pattern ထဲဝင်ထား စစ်ဆေးခြင်း w/ Regex object"
-            ],
-            "outputs": []
-        },
-        {
-            "language": "javascript",
-            "source": [
-                "// generated by Chatgpt\r\n// checking the input value is a valid email\r\nconst regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/\r\n\r\nconst email1 = \"fish\"\r\nconst email2 = \"www.google.com\"\r\nconst email3 = \"zawinaing.devvv@gmail.com\"\r\n\r\nconsole.log(email1.match(regex)) // null\r\nconsole.log(email2.match(regex)) // null\r\nconsole.log(email3.match(regex)) // return an array \r\n/**\r\n * return\r\n * [\r\n  'zawinaing.devvv@gmail.com',\r\n  index: 0, // Index 0 ကနေစပြီးတော့ ကိုက်တယ်လို့်ပြောတာ\r\n  input: 'zawinaing.devvv@gmail.com',\r\n  groups: undefined \"capturing group\" လို့ခေါ်တဲ့ substring တွေပါလားဆိုတာကိုပြပေးတာ\r\n]\r\n */"
-            ],
-            "outputs": []
-        },
-        {
-            "language": "javascript",
-            "source": [
-                ""
+                "# Regex\r\n\r\n### string တစ်ခုက ကိုယ်လိုချင်တာ Pattern ထဲဝင်ရဲ့လား စစ်ဆေးခြင်း w/ Regex object\r\n\r\nတစ်ခါတစ်လေ တချို့ string တွေက သတ်မှတ် ထားတဲ့ pattern ပုံစံဝင်ရဲ့လားဆိုတာကိုစစ်ဆေးဖို့အတွက်ဆိုရင်၊ regex ကိုယ်ပိုင် method တစ်ခုဖြစ်တဲ့ **test** ကိုသုံးနိုင်ပါတယ်။\r\n\r\nmatch, matchAll တို့က string method တွေဖြစ်ကြပါတယ်။ အပေါ်မှာပြောခဲ့တဲ့အတိုင်း သတ်မှတ် ထားတဲ့ pattern ဝင်ရဲ့လားဆိုတာကိုပဲစစ်ရုံပဲ၊ အဲဒီ string ထဲက ဘာမှပြန်ထွက်လာစေဖို့ မလိုအပ်ရင် ဒီ method က သုံးဖို့အသင့်တော်ဆုံးပါ။\r\n\r\nတကယ် real world မှာလည်း form validation တွေမှာ အများဆုံးပါတဲ့၊ password, email, user name validation တွေမှာ အဓိကသုံးပါတယ်။\r\n\r\n‌နောက်ထပ်အသုံးဝင်တဲ့ regex method **exec** သူကတော့ အပေါ်က string method တွေလို match ဖြစ်တဲ့ pattern တွေကိုပြန်ထုတ်ပေးတာပါ။\r\n\r\n1) .test()\r\n3) .exec()"
             ],
             "outputs": []
         },
         {
             "language": "markdown",
             "source": [
-                "# replace"
+                "regular expression // ရဲ့ကိုယ်ပိုင် method ဖြစ်လို့, regex ပုံစံ string ရဲ့နောက်မှာ dot notation ကပ်ပေးလိုက်ရုံပါပဲ\r\n\r\n```js\r\nconst regexString = /i am a regex/\r\nconst normalString = \"i am a regex\"\r\nconst normalString2 = \"i am a \"\r\n\r\nregexString.test(normalString) // true\r\nregexString.test(normalString) // true\r\nregexString.test(normalString2) // false\r\n```"
             ],
             "outputs": []
         },
         {
             "language": "javascript",
             "source": [
-                "const string = \"The quick brown fox jumps over the lazy dog\";\r\n\r\nconsole.log(string.replace(\"fox\", \"horse\"));"
+                "// generated by Chatgpt\r\n// checking the input value is a valid email\r\nconst regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;\r\n\r\nconst email1 = \"fish\";\r\nconst email2 = \"www.google.com\";\r\nconst email3 = \"zawinaing.devvv@gmail.com\";\r\n\r\nconsole.log(regex.test(email1)); // false\r\nconsole.log(regex.test(email2)); // false\r\nconsole.log(regex.test(email3)); // true"
             ],
             "outputs": []
         },
         {
             "language": "javascript",
             "source": [
-                ""
+                "const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;\r\n\r\nconst email1 = \"fish\";\r\nconst email2 = \"www.google.com\";\r\nconst email3 = \"zawinaing.devvv@gmail.com\";\r\n\r\nconsole.log(regex.exec(email1)); // null\r\nconsole.log(regex.exec(email2)); // null\r\nconsole.log(regex.exec(email3)); \r\n// [\r\n//     'zawinaing.devvv@gmail.com',\r\n//     index: 0,\r\n//     input: 'zawinaing.devvv@gmail.com',\r\n//     groups: undefined\r\n// ]"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "# lowerCase & uppercase\r\n\r\nstring တွေရဲ့ case တွေကိုပြောင်းတာပါ၊"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const uppercase = \"APPLE\";\r\nconsole.log(uppercase.toLowerCase());\r\nconsole.log(fruit.toUpperCase());"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "# replace\r\n\r\nနာမည်အတိုင်းပဲ string တစ်ခုထဲက ကိုယ်ပြောင်းချင်တဲ့ sub string တွေကို ပြောင်းချင်တဲ့အခါသုံးတာပါ။ သူရဲ့ default behavior က normal string နဲ့ရှာမယ်ဆိုရင် ပထမဆုံး match ဖြစ်တဲ့ တစ်ခုကိုပဲ ပြောင်းတာပါ နောက်ဟာတွေမပြောင်းပါ။ ပိုပြီး powerful ဖြစ်ဖြစ် replace လုပ်ဖို့ဆိုရင်တော့ regex ကိုသုံးရပါတယ်။\r\nသူက original string ကိုမပြောင်းပါဘူး၊ new copy string တစ်ခု ပြန်ပေးတာပါ။"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const string = \"The quick brown fox jumps over the lazy dog\";\r\n\r\nconsole.log(string.replace(\"fox\", \"horse\")); // The quick brown horse jumps over the lazy dog."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const string2 = \"The quick brown fox jumps over the lazy dog fox\";\r\n\r\nconsole.log(string2.replace(\"fox\", \"horse\")); // The quick brown horse jumps over the lazy dog fox."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const string3 = \"The quick brown fox jumps over the lazy dog fox\";\r\n\r\n// g flag လေးလဲထည့်ဖို့မမေ့ပါနဲ့..\r\nconsole.log(string3.replace(/fox/g, \"horse\")); // The quick brown horse jumps over the lazy dog fox horse."
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "The quick brown horse jumps over the lazy dog horse",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "replace လုပ်မယ့် ဟာတွေကို အခြား string method တွေသုံးချင်ရင် callback function parameter ထည့်ပြီး ပြောင်းလို့ရပါတယ်။"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const string  = \"u Tun, u  Mg Mg and u Min are having conversation in a room.\"\r\n\r\nconst upperCase = string.replace(/u/g, (s) => s.toUpperCase());\r\n\r\nconsole.log(upperCase)// U Mya, U Mg Mg and U Min are having conversation in a room."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "<h3 align=\"center\" style=\"color: blue;\">Feel free to try with other string methods</h3>"
             ],
             "outputs": []
         },
@@ -908,35 +1300,6 @@
             "language": "javascript",
             "source": [
                 "const string = \"      he l lo   \";\r\nconst string2 = \"      he l      lo   \";\r\nconst string3 = \"        h e    ll   o     \";\r\n\r\n// regex\r\nconsole.log(string.replace(/\\s+/g, \"\"));\r\nconsole.log(string2.replace(/\\s+/g, \"\"));\r\nconsole.log(string3.replace(/\\s+/g, \"\"));"
-            ],
-            "outputs": [
-                {
-                    "items": [
-                        {
-                            "mime": "application/vnd.code.notebook.stdout",
-                            "value": [
-                                "hello",
-                                "hello",
-                                "hello",
-                                "",
-                                ""
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "language": "markdown",
-            "source": [
-                "# lowerCase & uppercase"
-            ],
-            "outputs": []
-        },
-        {
-            "language": "javascript",
-            "source": [
-                "const uppercase = \"APPLE\";\r\nconsole.log(uppercase.toLowerCase());\r\nconsole.log(fruit.toUpperCase());"
             ],
             "outputs": []
         },
@@ -1037,14 +1400,14 @@
         {
             "language": "markdown",
             "source": [
-                "# string.indeof"
+                "# string.indeof\r\n\r\nstring တစ်ခုထဲက substring တစ်ခုရဲ့နေရာကိုရှာတဲ့အခါသုံးတာပါ"
             ],
             "outputs": []
         },
         {
             "language": "javascript",
             "source": [
-                "const person = \"Leon S. Kennedy\""
+                "const person = \"Leon S. Kennedy\";\r\n\r\nconsole.log(person.indexOf(\"K\")); // 8"
             ],
             "outputs": []
         },
@@ -1072,7 +1435,7 @@
         {
             "language": "javascript",
             "source": [
-                "\r\nconst a = \"1\";\r\nconst parseInteger = parseInt(a);\r\nconst number = Number(a);\r\n\r\nconsole.log(typeof parseInt(a), parseInteger); // number 1\r\nconsole.log(typeof Number(a), number); // nunber 1"
+                "\r\nconst a = \"1\";\r\nconst parseInteger = parseInt(a);\r\nconst number = Number(a);\r\n\r\nconsole.log(typeof parseInt(a), parseInteger); // number 1\r\nconsole.log(typeof Number(a), number); // number 1"
             ],
             "outputs": []
         },
@@ -1086,7 +1449,14 @@
         {
             "language": "markdown",
             "source": [
-                "ဒီနေရာမှာကိုယ်တိုင်ကြုံတွေ့ဖူးတဲ့ တွေ့အကြုံတစ်ခုကို တစ်ခုလောာက် ပြောပြချင်ပါတယ်။ \r\n\r\n```js\r\ntypeof number == \"number\"\r\n\r\n```\r\n\r\nဆိုတဲ့ if statement လေးတ်ခုရှိတယ်ဆိုပါစို့ Nan ဆိုတာလဲ တစ်ကယ်တော့ number data type ပဲဖြစ်လို့ အဲဒီ statement ကမှန်တော့ အောက်က code တွေကို ဆက်ပြီး execute ဆက်လုပ်တော့ error တွေတက်ကုန်တာမျိုးကြုံဖူးပါတယ်။"
+                "ဒီနေရာမှာကိုယ်တိုင်ကြုံတွေ့ဖူးတဲ့ တွေ့အကြုံတစ်ခုကို တစ်ခုလောာက် ပြောပြချင်ပါတယ်။ \r\n\r\n```js\r\ntypeof number == \"number\"\r\n\r\n```\r\n\r\nဆိုတဲ့ if statement လေးတ်ခုရှိတယ်ဆိုပါစို့ Nan ဆိုတာလဲ တစ်ကယ်တော့ number data type ပဲဖြစ်လို့၊ သူ့ကို typeof နဲ့ စစ်ရင်လဲ \"number\" လို့ပဲပေါ်လို့ အဲဒီ statement ကမှန်တော့ အောက်က code တွေကို ဆက်ပြီး execute ဆက်လုပ်တော့ error တွေတက်ကုန်တာမျိုးကြုံဖူးပါတယ်။ အဲလို ဖြစ်ရပ်မျိုးကို ကာဖို့အတွက် **isNan** ကိုသုံးလို့ရပါတယ်။"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const value = NaN;\r\nconst check = typeof value === \"number\" && !isNaN(value); // false\r\nconsole.log(check);"
             ],
             "outputs": []
         },
@@ -1956,14 +2326,14 @@
         {
             "language": "markdown",
             "source": [
-                "# Maximum & Minimum number in an array"
+                "# Maximum & Minimum number in an array\r\n\r\narray ထဲက အကြီးဆုံးဂဏန်း နဲ့ အငယ်ဆုံး ဂဏန်း ၂ ခုတို့ရဲ့ **index** တွေကို object key-value pair ပုံစံနဲ့ return ပြန်ပေးပါ။"
             ],
             "outputs": []
         },
         {
             "language": "javascript",
             "source": [
-                "\r\nconst array = [5, 7, 2, 4, 8, 10, 43];\r\nconst array2 = [5, 7, 1, 4, 8, 80, 43];\r\nconst array3 = [-12, -2, -32, 1, 8, 80, -1];\r\n\r\nconst minmaxNumberInAnArray = (array) => {\r\n    if (!Array.isArray(array)) return null;\r\n \r\n   //  your code here\r\n }; "
+                "\r\nconst array = [5, 7, 2, 4, 8, 10, 43];\r\nconst array2 = [5, 7, 1, 4, 8, 80, 43];\r\nconst array3 = [-12, -2, -32, 1, 8, 80, -1];\r\n\r\nconst minmaxNumberInAnArray = () => {\r\n    \r\n   //  your code\r\n }; \r\n\r\nconsole.log(minmaxNumberInAnArray(array)) // { max: 6, min: 2 }\r\nconsole.log(minmaxNumberInAnArray(array2)) // { max: 5, min: 2 }\r\nconsole.log(minmaxNumberInAnArray(array3)) // { max: 4, min: 1 }\r\nconsole.log(minmaxNumberInAnArray(23)) // null"
             ],
             "outputs": []
         },
@@ -1977,21 +2347,21 @@
         {
             "language": "javascript",
             "source": [
-                "const array = [3, 5, 12, 15, 6, 7, 8, 12];\r\n\r\n// run this function independently or the output may vary\r\nconst swapIndex = (array, index1, index2) => {\r\n   // your code here\r\n}\r\n   \r\n\r\nconsole.log(swap(array, 1, 3)); // [3, 15, 12, 5, 6, 7, 8, 12]\r\nconsole.log(swapIndex(array, 0, 18)); // [3, 5, 12, 15,6, 7,  8, 12 ]\r\nconsole.log(array); // [3, 15, 12,  5,6,  7,  8, 12 ]\r\n"
+                "const array = [3, 5, 12, 15, 6, 7, 8, 12];\r\n\r\nconst swapIndex = () => {\r\n   // your code \r\n}\r\n   \r\n\r\nconsole.log(swap(array, 1, 3)); // [3, 15, 12, 5, 6, 7, 8, 12]\r\n// index 18 does not exist\r\nconsole.log(swapIndex(array, 0, 18)); // [3, 5, 12, 15, 6, 7,  8, 12 ]\r\nconsole.log(swapIndex(array, 0, 7)); // [12, 5, 12, 15, 6, 7, 8, 3]\r\nconsole.log(array); // [12, 15, 12, 5, 6, 7,  8, 3]"
             ],
             "outputs": []
         },
         {
             "language": "markdown",
             "source": [
-                "# Is prime number"
+                "# Is prime number\r\n\r\nprime number တွေဆိုတာ ဘာနဲ့စားစား သုံညမကြွင်းတဲ့ ဂဏန်းတွေပါ၊ သူတို့ကိုယ်တိုင်တော့ ပြန်စားလို့မရပါ။\r\n\r\n5 -> ဘာနဲ့စားစား သုညမကြွင်းဘူး၊ 5 နဲ့ကလွဲလို့\r\n\r\n4 -> 2/2 = 4"
             ],
             "outputs": []
         },
         {
             "language": "javascript",
             "source": [
-                "/**\r\n * prime numbers are \r\n * - grater than 1\r\n * - can not divide by any positive integers other than themselves\r\n * 5 -> can not divided by any integer\r\n * 4 -> 2/2 = 4\r\n * etc..\r\n */\r\nconst isPrimeNumber = (num) => {\r\n   //  your code here\r\n };\r\n \r\n console.log(isPrimeNumber(2)); // true\r\n console.log(isPrimeNumber(3)); // true\r\n console.log(isPrimeNumber(5)); // true\r\n console.log(isPrimeNumber(6)); // false\r\n console.log(isPrimeNumber(11)); // true\r\n console.log(isPrimeNumber(12)); // false\r\n "
+                "\r\nconst isPrimeNumber = () => {\r\n   //  your code \r\n };\r\n \r\n console.log(isPrimeNumber(2)); // true\r\n console.log(isPrimeNumber(3)); // true\r\n console.log(isPrimeNumber(5)); // true\r\n console.log(isPrimeNumber(6)); // false\r\n console.log(isPrimeNumber(11)); // true\r\n console.log(isPrimeNumber(12)); // false\r\n console.log(isPrimeNumber(\"hello world\")); // null"
             ],
             "outputs": []
         },
@@ -2005,7 +2375,7 @@
         {
             "language": "javascript",
             "source": [
-                "const nFactorial = (num) => {\r\n   // your code here\r\n };\r\n \r\n console.log(nFactorial(3)); // 6\r\n console.log(nFactorial(4)); // 24\r\n console.log(nFactorial(\"hello\")); // null\r\n "
+                "const nFactorial = (num) => {\r\n   // your code\r\n };\r\n \r\n console.log(nFactorial(3)); // 6\r\n console.log(nFactorial(4)); // 24\r\n console.log(nFactorial(\"hello\")); // null\r\n "
             ],
             "outputs": [
                 {
@@ -2032,7 +2402,7 @@
         {
             "language": "javascript",
             "source": [
-                "const multiplicationTable = (numberToMultiply, range = 12) => {\r\n   // your code  \r\n};\r\n\r\n\r\nconsole.log(multiplicationTable(3));\r\n/**\r\n * Target output\r\n * {\r\n  '3 x 1': 3,  \r\n  '3 x 2': 6,  \r\n  '3 x 3': 9,  \r\n  '3 x 4': 12, \r\n  '3 x 5': 15, \r\n  '3 x 6': 18, \r\n  '3 x 7': 21, \r\n  '3 x 8': 24, \r\n  '3 x 9': 27, \r\n  '3 x 10': 30,\r\n  '3 x 11': 33,\r\n  '3 x 12': 36 \r\n}\r\n */\r\n\r\n\r\nconsole.log(multiplicationTable(4,5));\r\n\r\n/**\r\n * {\r\n  '4 x 1': 4, \r\n  '4 x 2': 8, \r\n  '4 x 3': 12,\r\n  '4 x 4': 16,\r\n  '4 x 5': 20 \r\n}\r\n */"
+                "const multiplicationTable = () => {\r\n   // your code  \r\n};\r\n\r\n\r\nconsole.log(multiplicationTable(3));\r\n/**\r\n * Target output\r\n * {\r\n  '3 x 1': 3,  \r\n  '3 x 2': 6,  \r\n  '3 x 3': 9,  \r\n  '3 x 4': 12, \r\n  '3 x 5': 15, \r\n  '3 x 6': 18, \r\n  '3 x 7': 21, \r\n  '3 x 8': 24, \r\n  '3 x 9': 27, \r\n  '3 x 10': 30,\r\n  '3 x 11': 33,\r\n  '3 x 12': 36 \r\n}\r\n */\r\n\r\n\r\nconsole.log(multiplicationTable(4,5));\r\n\r\n/**\r\n * {\r\n  '4 x 1': 4, \r\n  '4 x 2': 8, \r\n  '4 x 3': 12,\r\n  '4 x 4': 16,\r\n  '4 x 5': 20 \r\n}\r\n */\r\n\r\nconsole.log(multiplicationTable(0,10)); // null"
             ],
             "outputs": [
                 {
@@ -2058,7 +2428,7 @@
         {
             "language": "javascript",
             "source": [
-                "const countOccurrence = (string, searchString) => {\r\n    const searchPattern = new RegExp(searchString, \"ig\");\r\n    // your code here\r\n    \r\n }; \r\n\r\nconst string1 = \"she sells seashells on a seashore. sea has a lot of water\";\r\nconst string2 = \"Black bug bleeds blue blood, what color blood does a blue bug bleed?\";\r\n\r\nconsole.log(countOccurrence(string1, \"sea\")); // 3\r\nconsole.log(countOccurrence(string1, \"she\")); // 2\r\nconsole.log(countOccurrence(string1, \"sell\")); // 1\r\nconsole.log(countOccurrence(string2, \"bl\")); // 7\r\nconsole.log(countOccurrence(string2, \"doesn't exists\")); // null"
+                "const countOccurrence = () => {\r\n    const searchPattern = new RegExp(searchString, \"ig\");\r\n    // your code here\r\n    \r\n }; \r\n\r\nconst string1 = \"she sells seashells on a seashore. sea has a lot of water\";\r\nconst string2 = \"Black bug bleeds blue blood, what color blood does a blue bug bleed?\";\r\n\r\nconsole.log(countOccurrence(string1, \"sea\")); // 3\r\nconsole.log(countOccurrence(string1, \"she\")); // 2\r\nconsole.log(countOccurrence(string1, \"sell\")); // 1\r\nconsole.log(countOccurrence(string2, \"bl\")); // 7\r\nconsole.log(countOccurrence(string2, \"doesn't exists\")); // null"
             ],
             "outputs": []
         },
@@ -2072,7 +2442,7 @@
         {
             "language": "javascript",
             "source": [
-                "function sumUp(...numbers) {\r\n   //  your code here\r\n} \r\n\r\n\r\nconsole.log(sumUp(4, 6, 8, 9)); // 27\r\nconsole.log(sumUp(4, 6)); // 10\r\nconsole.log(sumUp(4, 6, \"hello\")); // null"
+                "function sumUp() {\r\n   //  your code here\r\n} \r\n\r\n\r\nconsole.log(sumUp(4, 6, 8, 9)); // 27\r\nconsole.log(sumUp(4, 6)); // 10\r\nconsole.log(sumUp(4, 6, \"hello\")); // null"
             ],
             "outputs": []
         },
@@ -2086,7 +2456,7 @@
         {
             "language": "javascript",
             "source": [
-                "const string = \"A quick brown fox jumps over a lazy dog\";\r\nconst string2 = \"Among the string i am lonnnnnnngest one\";\r\nconst string3 =\r\n   \"Schizophrenia is a chronic brain disorder that affects less than one percent of the U.S. population\";\r\n\r\nfunction longestWord(string) {\r\n      if (typeof string !== \"string\") return null;\r\n      // your code here\r\n}\r\nconsole.log(longestWord(string)); //  { length: 5, string: 'jumps' }\r\nconsole.log(longestWord(string2)); // { length: 13, string: 'lonnnnnnngest' }\r\nconsole.log(longestWord(string3)); // { length: 13, string: 'Schizophrenia' }\r\n"
+                "const string = \"A quick brown fox jumps over a lazy dog\";\r\nconst string2 = \"Among the string i am lonnnnnnngest one\";\r\nconst string3 =\r\n   \"Schizophrenia is a chronic brain disorder that affects less than one percent of the U.S. population\";\r\n\r\nfunction longestWord() {\r\n      // your code here\r\n}\r\nconsole.log(longestWord(string)); //  { length: 5, string: 'jumps' }\r\nconsole.log(longestWord(string2)); // { length: 13, string: 'lonnnnnnngest' }\r\nconsole.log(longestWord(string3)); // { length: 13, string: 'Schizophrenia' }\r\nconsole.log(longestWord(123)); // null\r\n"
             ],
             "outputs": []
         },
@@ -2100,7 +2470,7 @@
         {
             "language": "javascript",
             "source": [
-                "function stringPrettier(string) {\r\n   if (typeof string !== \"string\") return null;\r\n   // your code here\r\n}\r\n\r\n\r\nconsole.log(stringPrettier(string1)) // \"I have a lot of white spaces in my string.\"\r\nconsole.log(stringPrettier(string2)) // \"I am not that ugl but.\""
+                "const string1 =\r\n\"---****  @%$*     I*%%    have=   a   lot of      white-spaces      in, my    string()    \";\r\n\r\nconst string2 = \"  I===am**not%%%that--ugl***but\";\r\n\r\nfunction stringPrettier() {\r\n   // your code here\r\n}\r\n\r\n\r\nconsole.log(stringPrettier(string1)) // \"I have a lot of white spaces in my string.\"\r\nconsole.log(stringPrettier(string2)) // \"I am not that ugl but.\""
             ],
             "outputs": [
                 {
@@ -2126,7 +2496,7 @@
         {
             "language": "javascript",
             "source": [
-                "const string1 = \"a man a plan a canal panama\";\r\nconst string2 = \"mr owl ate my metal worm\";\r\nconst string3 = \"i am not a palindrome\";\r\nconst string4 = \"A man, a plan, a canal, Panama!\";\r\nconst string5 = \"Mr. Owl ate my metal worm.\";\r\nconst string6 = \"Was it a car or a cat I saw?\";\r\nconst string7 = \"No lemon, no melon.\";\r\nconst string8 = \"Not lemon, no melon.\";\r\nconst string9 = \"evilisanameofafoemanasilive\"\r\n\r\nfunction isPalindrome(string) {\r\n   if (typeof string !== \"string\") return null;\r\n   // your code here\r\n}\r\n\r\nconsole.log(isPalindrome(string1)); // true\r\nconsole.log(isPalindrome(string2)); // true\r\nconsole.log(isPalindrome(string3)); // false\r\nconsole.log(isPalindrome(string5)); // true\r\nconsole.log(isPalindrome(string6)); // true\r\nconsole.log(isPalindrome(string7)); // true\r\nconsole.log(isPalindrome(string8)); // false\r\n"
+                "const string1 = \"a man a plan a canal panama\";\r\nconst string2 = \"mr owl ate my metal worm\";\r\nconst string3 = \"i am not a palindrome\";\r\nconst string4 = \"A man, a plan, a canal, Panama!\";\r\nconst string5 = \"Mr. Owl ate my metal worm.\";\r\nconst string6 = \"Was it a car or a cat I saw?\";\r\nconst string7 = \"No lemon, no melon.\";\r\nconst string8 = \"Not lemon, no melon.\";\r\nconst string9 = \"evilisanameofafoemanasilive\"\r\n\r\nfunction isPalindrome() {\r\n   // your code here\r\n}\r\n\r\nconsole.log(isPalindrome(string1)); // true\r\nconsole.log(isPalindrome(string2)); // true\r\nconsole.log(isPalindrome(string3)); // false\r\nconsole.log(isPalindrome(string5)); // true\r\nconsole.log(isPalindrome(string6)); // true\r\nconsole.log(isPalindrome(string7)); // true\r\nconsole.log(isPalindrome(string8)); // false\r\nconsole.log(isPalindrome(string9)); // true\r\n"
             ],
             "outputs": []
         },
@@ -2140,7 +2510,7 @@
         {
             "language": "javascript",
             "source": [
-                "const input = [3,5,5,3,3,6,7,3,9,2,9,2,1,1]\r\n\r\n\r\n// do not run this in parallel\r\nconst removeIfGreaterThan = (input, number) => {\r\n    if (!Array.isArray(input) || typeof number !== \"number\") return null;\r\n      //  your code here\r\n };\r\n \r\n\r\n console.log(removeIfGreaterThan(input, 6)) // [3, 5, 5, 3, 3,6, 3, 2, 2, 1,1]\r\n console.log(removeIfGreaterThan(input, 2)) // [ 2, 2, 1, 1 ]\r\n console.log(removeIfGreaterThan(input, 1)) // [1,1]\r\n console.log(removeIfGreaterThan(input, \"hello\")) // null"
+                "const input = [3, 5, 5, 3, 3, 6, 7, 3, 9, 2, 9, 2, 1, 1, 13, 19, 10]\r\n\r\n\r\nconst removeIfGreaterThan = () => {\r\n      //  your code here\r\n };\r\n \r\n\r\n console.log(removeIfGreaterThan(input, 6)) \r\n // return [3, 5, 5, 3, 3, 6, 7, 3, 9, 2, 9, 2, 1, 1]\r\n\r\n console.log(removeIfGreaterThan(input, 6)) \r\n // return [3, 5, 5, 3, 3,6, 3, 2, 2, 1,1]\r\n\r\n console.log(removeIfGreaterThan(input, 6))\r\n// return [3, 5, 5, 3, 3,6, 3, 2, 2, 1,1]\r\n\r\n console.log(removeIfGreaterThan(input, 2)) \r\n // return [ 2, 2, 1, 1 ]\r\n\r\n console.log(removeIfGreaterThan(input, 1)) \r\n // return [1,1]\r\n\r\n console.log(removeIfGreaterThan(input, \"hello\")) \r\n // null"
             ],
             "outputs": []
         },
@@ -2154,7 +2524,7 @@
         {
             "language": "javascript",
             "source": [
-                "const items = [\r\n   { item: \"potato\", qty: 1 },\r\n   { item: \"tomato\", qty: 1 },\r\n   { item: \"chillies\", qty: 1 },\r\n   { item: \"green-pepper\", qty: 1 },\r\n];\r\n\r\nfunction addToArrayAndIncrease(array, newItem) {\r\n   //  your code here\r\n}\r\n\r\naddToArrayAndIncrease(items, \"potato\");\r\naddToArrayAndIncrease(items, \"banana\");\r\naddToArrayAndIncrease(items, \"mango\");\r\naddToArrayAndIncrease(items, \"Potato\");\r\naddToArrayAndIncrease(items, \"Strawberry\");\r\naddToArrayAndIncrease(items, \"Strawberry\");\r\n\r\n\r\nconsole.log(items)\r\n\r\n/**\r\n * expected result\r\n * [\r\n  { item: 'strawberry', qty: 2 }, \r\n  { item: 'mango', qty: 1 },      \r\n  { item: 'banana', qty: 1 },     \r\n  { item: 'potato', qty: 3 },     \r\n  { item: 'tomato', qty: 1 },     \r\n  { item: 'chillies', qty: 1 },   \r\n  { item: 'green-pepper', qty: 1 }\r\n]\r\n */"
+                "const items = [\r\n   { item: \"potato\", qty: 1 },\r\n   { item: \"tomato\", qty: 1 },\r\n   { item: \"chillies\", qty: 1 },\r\n   { item: \"green-pepper\", qty: 1 },\r\n];\r\n\r\nfunction addToArrayAndIncrease() {\r\n   //  your code here\r\n}\r\n\r\naddToArrayAndIncrease(items, \"potato\");\r\naddToArrayAndIncrease(items, \"banana\");\r\naddToArrayAndIncrease(items, \"mango\");\r\naddToArrayAndIncrease(items, \"Potato\");\r\naddToArrayAndIncrease(items, \"Strawberry\");\r\naddToArrayAndIncrease(items, \"Strawberry\");\r\n\r\n\r\nconsole.log(items)\r\n\r\n/**\r\n * expected result\r\n * [\r\n  { item: 'strawberry', qty: 2 }, \r\n  { item: 'mango', qty: 1 },      \r\n  { item: 'banana', qty: 1 },     \r\n  { item: 'potato', qty: 3 },     \r\n  { item: 'tomato', qty: 1 },     \r\n  { item: 'chillies', qty: 1 },   \r\n  { item: 'green-pepper', qty: 1 }\r\n]\r\n */"
             ],
             "outputs": []
         },
@@ -2168,105 +2538,105 @@
         {
             "language": "javascript",
             "source": [
-                "const duplicates = [\r\n    { item: \"apple\", quantity: 2 },\r\n    { item: \"orange\", quantity: 5 },\r\n    { item: \"apple\", quantity: 1 },\r\n    { item: \"apple\", quantity: 2 },\r\n    { item: \"pineapple\", quantity: 3 },\r\n    { item: \"strawberry\", quantity: 7 },\r\n    { item: \"orange\", quantity: 1 },\r\n    { item: \"grape\", quantity: 7 },\r\n    { item: \"mango\", quantity: 1 },\r\n ];\r\n \r\n const combineDuplicates = (duplicates) => {\r\n   //  your code here\r\n };\r\n\r\n\r\nconsole.log(combineDuplicates(duplicates));\r\n\r\n /**\r\n  * {\r\n   apple: 5,     \r\n   orange: 6,    \r\n   pineapple: 3, \r\n   strawberry: 7,\r\n   grape: 7,     \r\n   mango: 1      \r\n   }\r\n  */\r\n\r\n"
+                "const duplicates = [\r\n    { item: \"apple\", quantity: 2 },\r\n    { item: \"orange\", quantity: 5 },\r\n    { item: \"apple\", quantity: 1 },\r\n    { item: \"apple\", quantity: 2 },\r\n    { item: \"pineapple\", quantity: 3 },\r\n    { item: \"strawberry\", quantity: 7 },\r\n    { item: \"orange\", quantity: 1 },\r\n    { item: \"grape\", quantity: 7 },\r\n    { item: \"mango\", quantity: 1 },\r\n ];\r\n \r\n const combineDuplicates = () => {\r\n   //  your code here\r\n };\r\n\r\n\r\nconsole.log(combineDuplicates(duplicates));\r\n\r\n /**\r\n  * {apple: 5,orange: 6, pineapple: 3, strawberry: 7, grape: 7, mango: 1}\r\n  */"
             ],
             "outputs": []
         },
         {
             "language": "markdown",
             "source": [
-                "# How many prime numbers below the given prime number"
+                "# How many prime numbers below the given prime number\r\n\r\nprime number တစ်ခုထည့်ပေးလိုက်မယ်။ အဲဒီ ရဲ့အောက်မှာ နောက်ထပ် တခြား prime number တွေကိုလိုချင်တာပါ။ ထည့်ပေး လိုက်တဲ့ ဂဏန်းက prime number မဟုတ်ရင် null ပြန်ပေးပါ။"
             ],
             "outputs": []
         },
         {
             "language": "javascript",
             "source": [
-                "function howManyPrime(number) {\r\n   let primeNumbers = [];\r\n   if (number <= 2) return 2;\r\n\r\n   // your code\r\n\r\n   return primeNumbers;\r\n}\r\n\r\nconsole.log(howManyPrime(11)); // output -> [2, 3, 5, 7 ]\r\nconsole.log(howManyPrime(17)); // output -> [2, 3, 5, 7, 11, 13 ]\r\nconsole.log(howManyPrime(23)); // output -> [2,  3,  5,  7,11, 13, 17, 19]\r\nconsole.log(howManyPrime(73)); // output -> [2,  3,  5,  7, 11, 13, 17,19, 23, 29, 31, 37, 41, 43,47, 53, 59, 61, 67, 71]"
+                "function howManyPrime() {\r\n\r\n   // your code\r\n\r\n}\r\n\r\nconsole.log(howManyPrime(2)); // output -> 2\r\nconsole.log(howManyPrime(11)); // output -> [2, 3, 5, 7 ]\r\nconsole.log(howManyPrime(17)); // output -> [2, 3, 5, 7, 11, 13 ]\r\nconsole.log(howManyPrime(23)); // output -> [2,  3,  5,  7,11, 13, 17, 19]\r\nconsole.log(howManyPrime(73)); // output -> [2,  3,  5,  7, 11, 13, 17,19, 23, 29, 31, 37, 41, 43,47, 53, 59, 61, 67, 71]\r\nconsole.log(howManyPrime(\"hello\")); // null"
             ],
             "outputs": []
         },
         {
             "language": "markdown",
             "source": [
-                "# Custom filter callback"
+                "# Custom filter callback\r\n\r\nအပေါ်က function 1 ထဲကို တခြား function 2 ၁ ခုထည့်လိုက်လို့ အဲဒီထည့်လိုက်တဲ့ function 2 ကနေပြန်ထွက်လာမယ့် result တွေကို function 1 ကနေပြန်ထုတ်ပေးစေချင်တာပါ။"
             ],
             "outputs": []
         },
         {
             "language": "javascript",
             "source": [
-                "const numbers = [3, 4, 5, 6, 7, 8, 12, 19, 22, 33];\r\n\r\nfunction higherOrderFilter(numbers, cb) {\r\n   // your code here\r\n}\r\n\r\nfunction greaterThan(num) {\r\n   if (num > 5) return num;\r\n}\r\n\r\nfunction evenNumbers(num) {\r\n   if (num % 2 === 0) return num;\r\n}\r\n\r\nconst five = higherOrderFilter(numbers, greaterThan); \r\nconst even = higherOrderFilter(numbers, evenNumbers); \r\nconsole.log(five); // [6,7, 8, 12, 19, 22, 33]\r\nconsole.log(even); // [ 4, 6, 8, 12, 22 ]"
+                "const numbers = [3, 4, 5, 6, 7, 8, 12, 19, 22, 33];\r\n\r\nfunction higherOrderFilter() {\r\n   // your code here\r\n}\r\n\r\nfunction greaterThan() {\r\n   // your code\r\n}\r\n\r\nfunction evenNumbers() {\r\n   // your code\r\n}\r\n\r\nconst greaterThanFive = higherOrderFilter(numbers, greaterThan); \r\nconst evenNum = higherOrderFilter(numbers, evenNumbers); \r\nconsole.log(greaterThanFive); // [6,7, 8, 12, 19, 22, 33]\r\nconsole.log(evenNum); // [ 4, 6, 8, 12, 22 ]"
             ],
             "outputs": []
         },
         {
             "language": "markdown",
             "source": [
-                "# Maximum sum of an array"
+                "# Maximum sum of an array\r\n\r\narray တစ်ခုထဲက အကြီးဆုံးဂဏန်းတစ်ခုက ကျန်ဂဏန်းတွေရဲ့ပေါင်းခြင်းနဲ့ညီလားဆိုတာကို စစ်ဖို့ပါ။\r\nဥပမာ ။ ။ \r\n\r\n```js\r\n[4,2,1,1] = true\r\n```\r\nbecause 4 is the largest number\r\n2+1+1 = 4"
             ],
             "outputs": []
         },
         {
             "language": "javascript",
             "source": [
-                "const array1 = [2, 3, 4, 5, 14];\r\nconst array2 = [3, 22, 4, 5, 14];\r\nconst array3 = [3, 22, 4, 5, 10];\r\nconst array4 = [3, 22, 4, 5, 10, 5, 7];\r\n\r\nfunction maxSumArray(array) {\r\n   // your code here\r\n}\r\n\r\nconsole.log(maxSumArray(array1)); // true\r\nconsole.log(maxSumArray(array2)); // false\r\nconsole.log(maxSumArray(array3)); // true\r\nconsole.log(maxSumArray(array4)); // false"
+                "const array1 = [2, 3, 4, 5, 14];\r\nconst array2 = [3, 22, 4, 5, 14];\r\nconst array3 = [3, 22, 4, 5, 10];\r\nconst array4 = [3, 22, 4, 5, 10, 5, 7];\r\n\r\nfunction maxSumArray() {\r\n   // your code here\r\n}\r\n\r\nconsole.log(maxSumArray(array1)); // true\r\nconsole.log(maxSumArray(array2)); // false\r\nconsole.log(maxSumArray(array3)); // true\r\nconsole.log(maxSumArray(array4)); // false"
             ],
             "outputs": []
         },
         {
             "language": "markdown",
             "source": [
-                "# Highest income professions by year"
+                "# Highest income professions by year\r\nJSON data တစ်ခုရှိတယ်ဆိုပါစို့။ အဲဒီ data ထဲကနေ profession တွေရယ်သူတို့ရတဲ့လစာတွေကို နှစ်အလိုက် ဖော်ပြပေးထားတယ်။\r\n\r\nအဲဒီထဲကမှ ကိုယ်လိုချင်တဲ့ နှစ်အလိုက်ကို ရိုက်ထည့်လိုက်တာနဲ့ ကိုယ်လိုချင်တဲ့ object key-value pair ပုံစံနဲ့ ထွက်လာစေချင်တယ်။\r\n\r\n```js\r\nconst input = \"2022\"\r\n// {profession : \"doctor\", income : 3234 }\r\n```"
             ],
             "outputs": []
         },
         {
             "language": "javascript",
             "source": [
-                "const semester1 = [\r\n   {\r\n      name: \"Jimmy\",\r\n      scores: [\r\n         { subject: \"2020\", score: 43 },\r\n         { subject: \"2021\", score: 44 },\r\n         { subject: \"2022\", score: 78 },\r\n         { subject: \"2023\", score: 12 },\r\n      ],\r\n   },\r\n];\r\n\r\nconst people = [\r\n   {\r\n      profession: \"doctor\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 8000 },\r\n         { year: \"2021\", income: 10000 },\r\n         { year: \"2022\", income: 9000 },\r\n         { year: \"2023\", income: 12000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"web designer\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 10000 },\r\n         { year: \"2021\", income: 7000 },\r\n         { year: \"2022\", income: 9500 },\r\n         { year: \"2023\", income: 7800 },\r\n      ],\r\n   },\r\n   {\r\n      name: \"Leo\",\r\n      profession: \"fisherman\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 12000 },\r\n         { year: \"2021\", income: 5000 },\r\n         { year: \"2022\", income: 8500 },\r\n         { year: \"2023\", income: 7000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"surgeon\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 30000 },\r\n         { year: \"2021\", income: 20000 },\r\n         { year: \"2022\", income: 9000 },\r\n         { year: \"2023\", income: 10000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"nurse\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 10500 },\r\n         { year: \"2021\", income: 9500 },\r\n         { year: \"2022\", income: 10000 },\r\n         { year: \"2023\", income: 9000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"fashion designer\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 3000 },\r\n         { year: \"2021\", income: 8000 },\r\n         { year: \"2022\", income: 9000 },\r\n         { year: \"2023\", income: 10000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"game developer\",\r\n      avgIncome: [\r\n         { year: \"2021\", income: 5000 },\r\n         { year: \"2021\", income: 13000 },\r\n         { year: \"2022\", income: 12000 },\r\n         { year: \"2023\", income: 10000 },\r\n      ],\r\n   },\r\n\r\n   {\r\n      profession: \"comedian\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 4000 },\r\n         { year: \"2021\", income: 10000 },\r\n         { year: \"2022\", income: 9000 },\r\n         { year: \"2023\", income: 12000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"web developer\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 13000 },\r\n         { year: \"2021\", income: 8000 },\r\n         { year: \"2022\", income: 9500 },\r\n         { year: \"2023\", income: 12000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"e sport player\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 500 },\r\n         { year: \"2021\", income: 2000 },\r\n         { year: \"2022\", income: 9000 },\r\n         { year: \"2023\", income: 15000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"civil engineer\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 15000 },\r\n         { year: \"2021\", income: 10000 },\r\n         { year: \"2022\", income: 9000 },\r\n         { year: \"2023\", income: 12000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"mechanical engineer\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 17000 },\r\n         { year: \"2021\", income: 10000 },\r\n         { year: \"2022\", income: 9000 },\r\n         { year: \"2023\", income: 12000 },\r\n      ],\r\n   },\r\n];\r\n\r\nfunction filterByYear(year) {\r\n   const result = [];\r\n\r\n   // your code here\r\n\r\n}\r\n\r\nconsole.table(filterByYear(\"2022\"));\r\n/**\r\n * [\r\n  { profession: 'game developer', income: 12000 },    \r\n  { profession: 'nurse', income: 10000 },\r\n  { profession: 'web designer', income: 9500 },       \r\n  { profession: 'web developer', income: 9500 },      \r\n  { profession: 'doctor', income: 9000 },\r\n  { profession: 'surgeon', income: 9000 },\r\n  { profession: 'fashion designer', income: 9000 },   \r\n  { profession: 'comedian', income: 9000 },\r\n  { profession: 'e sport player', income: 9000 },     \r\n  { profession: 'civil engineer', income: 9000 },     \r\n  { profession: 'mechanical engineer', income: 9000 },\r\n  { profession: 'fisherman', income: 8500 }\r\n]\r\n */\r\n\r\n   \r\nconsole.table(filterByYear(\"2021\"));\r\n/**\r\n * [\r\n  { profession: 'surgeon', income: 20000 },\r\n  { profession: 'doctor', income: 10000 },\r\n  { profession: 'comedian', income: 10000 },\r\n  { profession: 'civil engineer', income: 10000 },     \r\n  { profession: 'mechanical engineer', income: 10000 },\r\n  { profession: 'nurse', income: 9500 },\r\n  { profession: 'fashion designer', income: 8000 },    \r\n  { profession: 'web developer', income: 8000 },       \r\n  { profession: 'web designer', income: 7000 },        \r\n  { profession: 'fisherman', income: 5000 },\r\n  { profession: 'game developer', income: 5000 },      \r\n  { profession: 'e sport player', income: 2000 }       \r\n]\r\n */\r\nconsole.table(filterByYear(\"2025\")); // null\r\n"
+                "const people = [\r\n   {\r\n      profession: \"doctor\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 8000 },\r\n         { year: \"2021\", income: 10000 },\r\n         { year: \"2022\", income: 9000 },\r\n         { year: \"2023\", income: 12000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"web designer\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 10000 },\r\n         { year: \"2021\", income: 7000 },\r\n         { year: \"2022\", income: 9500 },\r\n         { year: \"2023\", income: 7800 },\r\n      ],\r\n   },\r\n   {\r\n      name: \"Leo\",\r\n      profession: \"fisherman\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 12000 },\r\n         { year: \"2021\", income: 5000 },\r\n         { year: \"2022\", income: 8500 },\r\n         { year: \"2023\", income: 7000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"surgeon\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 30000 },\r\n         { year: \"2021\", income: 20000 },\r\n         { year: \"2022\", income: 9000 },\r\n         { year: \"2023\", income: 10000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"nurse\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 10500 },\r\n         { year: \"2021\", income: 9500 },\r\n         { year: \"2022\", income: 10000 },\r\n         { year: \"2023\", income: 9000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"fashion designer\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 3000 },\r\n         { year: \"2021\", income: 8000 },\r\n         { year: \"2022\", income: 9000 },\r\n         { year: \"2023\", income: 10000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"game developer\",\r\n      avgIncome: [\r\n         { year: \"2021\", income: 5000 },\r\n         { year: \"2021\", income: 13000 },\r\n         { year: \"2022\", income: 12000 },\r\n         { year: \"2023\", income: 10000 },\r\n      ],\r\n   },\r\n\r\n   {\r\n      profession: \"comedian\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 4000 },\r\n         { year: \"2021\", income: 10000 },\r\n         { year: \"2022\", income: 9000 },\r\n         { year: \"2023\", income: 12000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"web developer\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 13000 },\r\n         { year: \"2021\", income: 8000 },\r\n         { year: \"2022\", income: 9500 },\r\n         { year: \"2023\", income: 12000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"e sport player\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 500 },\r\n         { year: \"2021\", income: 2000 },\r\n         { year: \"2022\", income: 9000 },\r\n         { year: \"2023\", income: 15000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"civil engineer\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 15000 },\r\n         { year: \"2021\", income: 10000 },\r\n         { year: \"2022\", income: 9000 },\r\n         { year: \"2023\", income: 12000 },\r\n      ],\r\n   },\r\n   {\r\n      profession: \"mechanical engineer\",\r\n      avgIncome: [\r\n         { year: \"2020\", income: 17000 },\r\n         { year: \"2021\", income: 10000 },\r\n         { year: \"2022\", income: 9000 },\r\n         { year: \"2023\", income: 12000 },\r\n      ],\r\n   },\r\n];\r\n\r\nfunction filterByYear() {\r\n   // your code here\r\n\r\n}\r\n\r\nconsole.table(filterByYear(\"2022\"));\r\n/**\r\n * [\r\n  { profession: 'game developer', income: 12000 },    \r\n  { profession: 'nurse', income: 10000 },\r\n  { profession: 'web designer', income: 9500 },       \r\n  { profession: 'web developer', income: 9500 },      \r\n  { profession: 'doctor', income: 9000 },\r\n  { profession: 'surgeon', income: 9000 },\r\n  { profession: 'fashion designer', income: 9000 },   \r\n  { profession: 'comedian', income: 9000 },\r\n  { profession: 'e sport player', income: 9000 },     \r\n  { profession: 'civil engineer', income: 9000 },     \r\n  { profession: 'mechanical engineer', income: 9000 },\r\n  { profession: 'fisherman', income: 8500 }\r\n]\r\n */\r\n\r\n   \r\nconsole.table(filterByYear(\"2021\"));\r\n/**\r\n * [\r\n  { profession: 'surgeon', income: 20000 },\r\n  { profession: 'doctor', income: 10000 },\r\n  { profession: 'comedian', income: 10000 },\r\n  { profession: 'civil engineer', income: 10000 },     \r\n  { profession: 'mechanical engineer', income: 10000 },\r\n  { profession: 'nurse', income: 9500 },\r\n  { profession: 'fashion designer', income: 8000 },    \r\n  { profession: 'web developer', income: 8000 },       \r\n  { profession: 'web designer', income: 7000 },        \r\n  { profession: 'fisherman', income: 5000 },\r\n  { profession: 'game developer', income: 5000 },      \r\n  { profession: 'e sport player', income: 2000 }       \r\n]\r\n */\r\nconsole.table(filterByYear(\"2025\")); // null\r\n"
             ],
             "outputs": []
         },
         {
             "language": "markdown",
             "source": [
-                "## Exam results\r\n"
+                "## Exam results\r\n\r\nexam array ၂ ခုရှိပြီး အဲဒီ ၂ခုရဲ့ ၂ ခုပေါင်း ရလဒ်ကိုပြန်ပေါင်းပြီး array အသစ်တစ်ခု ပြန်ထုတ်ပေးစေချင်တာပါ။ exam ၂ ခုမှာ subject တွေကတူချင်မှလဲတူပါမယ်။ participant တွေလဲတူချင်မှတူပါမယ်။ ဒါပေမယ့် ဘာလာလာ နောက်ဆုံး result မှာအကုန်ပါစေပြီး လိုချင်တယ့် ပုံလေးအတွက်ထွက်လာစေချင်ပါတယ်။\r\n\r\nconstraint : Please use array.reduce method"
             ],
             "outputs": []
         },
         {
             "language": "javascript",
             "source": [
-                "const exam1 = [\r\n   {\r\n      name: \"emily\",\r\n      math: 45,\r\n      english: 54,\r\n      geography: 77,\r\n      english: 66,\r\n      biology: 77,\r\n   },\r\n   {\r\n      name: \"freya\",\r\n      math: 73,\r\n      english: 46,\r\n      geography: 58,\r\n      english: 78,\r\n      biology: 46,\r\n   },\r\n   {\r\n      name: \"grace\",\r\n      math: 45,\r\n      english: 54,\r\n      geography: 77,\r\n      english: 66,\r\n      biology: 77,\r\n   },\r\n   {\r\n      name: \"harley\",\r\n      math: 69,\r\n      english: 87,\r\n      geography: 57,\r\n      english: 84,\r\n      biology: 64,\r\n   },\r\n   {\r\n      name: \"iris\",\r\n      math: 39,\r\n      english: 87,\r\n      geography: 97,\r\n      english: 54,\r\n      biology: 84,\r\n   },\r\n];\r\n\r\nconst exam2 = [\r\n   {\r\n      name: \"emily\",\r\n      math: 40,\r\n      english: 54,\r\n      geography: 77,\r\n      english: 66,\r\n      biology: 77,\r\n      politics: 88,\r\n      sport: 73,\r\n   },\r\n   {\r\n      name: \"freya\",\r\n      math: 73,\r\n      english: 46,\r\n      geography: 58,\r\n      english: 78,\r\n      biology: 46,\r\n      politics: 48,\r\n      sport: 35,\r\n   },\r\n   {\r\n      name: \"grace\",\r\n      math: 45,\r\n      english: 54,\r\n      geography: 77,\r\n      english: 66,\r\n      biology: 77,\r\n      politics: 42,\r\n      sport: 64,\r\n   },\r\n   {\r\n      name: \"harley\",\r\n      math: 69,\r\n      english: 87,\r\n      geography: 57,\r\n      english: 84,\r\n      biology: 64,\r\n      politics: 76,\r\n      sport: 42,\r\n   },\r\n];\r\n\r\nfunction examResult(...arrays) {\r\n   // your code ere\r\n}\r\n\r\nconst res = examResult(exam1, exam2);\r\n\r\nconsole.table(res);\r\n\r\n/**\r\n * {\r\n  emily: {\r\n    math: 85,\r\n    english: 132,\r\n    geography: 154,\r\n    biology: 154,\r\n    politics: 88,\r\n    sport: 73\r\n  },\r\n  freya: {\r\n    math: 146,\r\n    english: 156,\r\n    geography: 116,\r\n    biology: 92,\r\n    politics: 48,\r\n    sport: 35\r\n  },\r\n  grace: {\r\n    math: 90,\r\n    english: 132,\r\n    geography: 154,\r\n    biology: 154,\r\n    politics: 42,\r\n    sport: 64\r\n  },\r\n  harley: {\r\n    math: 138,\r\n    english: 168,\r\n    geography: 114,\r\n    biology: 128,\r\n    politics: 76,\r\n    sport: 42\r\n  },\r\n  iris: { math: 39, english: 54, geography: 97, biology: 84 }\r\n}\r\n */\r\n"
+                "const exam1 = [\r\n   {\r\n      name: \"emily\",\r\n      math: 45,\r\n      english: 54,\r\n      geography: 77,\r\n      english: 66,\r\n      biology: 77,\r\n   },\r\n   {\r\n      name: \"freya\",\r\n      math: 73,\r\n      english: 46,\r\n      geography: 58,\r\n      english: 78,\r\n      biology: 46,\r\n   },\r\n   {\r\n      name: \"grace\",\r\n      math: 45,\r\n      english: 54,\r\n      geography: 77,\r\n      english: 66,\r\n      biology: 77,\r\n   },\r\n   {\r\n      name: \"harley\",\r\n      math: 69,\r\n      english: 87,\r\n      geography: 57,\r\n      english: 84,\r\n      biology: 64,\r\n   },\r\n   {\r\n      name: \"iris\",\r\n      math: 39,\r\n      english: 87,\r\n      geography: 97,\r\n      english: 54,\r\n      biology: 84,\r\n   },\r\n];\r\n\r\nconst exam2 = [\r\n   {\r\n      name: \"emily\",\r\n      math: 40,\r\n      english: 54,\r\n      geography: 77,\r\n      english: 66,\r\n      biology: 77,\r\n      politics: 88,\r\n      sport: 73,\r\n   },\r\n   {\r\n      name: \"freya\",\r\n      math: 73,\r\n      english: 46,\r\n      geography: 58,\r\n      english: 78,\r\n      biology: 46,\r\n      politics: 48,\r\n      sport: 35,\r\n   },\r\n   {\r\n      name: \"grace\",\r\n      math: 45,\r\n      english: 54,\r\n      geography: 77,\r\n      english: 66,\r\n      biology: 77,\r\n      politics: 42,\r\n      sport: 64,\r\n   },\r\n   {\r\n      name: \"harley\",\r\n      math: 69,\r\n      english: 87,\r\n      geography: 57,\r\n      english: 84,\r\n      biology: 64,\r\n      politics: 76,\r\n      sport: 42,\r\n   },\r\n];\r\n\r\nfunction examResult() {\r\n   // your code ere\r\n}\r\n\r\nconst res = examResult(exam1, exam2);\r\n\r\nconsole.table(res);\r\n\r\n/**\r\n * {\r\n  emily: {\r\n    math: 85,\r\n    english: 132,\r\n    geography: 154,\r\n    biology: 154,\r\n    politics: 88,\r\n    sport: 73\r\n  },\r\n  freya: {\r\n    math: 146,\r\n    english: 156,\r\n    geography: 116,\r\n    biology: 92,\r\n    politics: 48,\r\n    sport: 35\r\n  },\r\n  grace: {\r\n    math: 90,\r\n    english: 132,\r\n    geography: 154,\r\n    biology: 154,\r\n    politics: 42,\r\n    sport: 64\r\n  },\r\n  harley: {\r\n    math: 138,\r\n    english: 168,\r\n    geography: 114,\r\n    biology: 128,\r\n    politics: 76,\r\n    sport: 42\r\n  },\r\n  iris: { math: 39, english: 54, geography: 97, biology: 84 }\r\n}\r\n */\r\n"
             ],
             "outputs": []
         },
         {
             "language": "markdown",
             "source": [
-                "# Average scores of each student after 3 semesters"
+                "# Average scores of each student after 3 semesters\r\n\r\nအပေါ်ကနဲ့ အနည်းငယ် ဆင်တူသလိုရှိပေမယ့် ဒီမှာက result ကို အမှတ်  ပေါ်မူတည်ပြီး descending order အတိုင်း sorted လုပ်ထားတာကိုလိုချင်တာပါ။ နောက်ပြီး semester တွေက ဘယ်နှစ်ခုပေါင်းစစ်မှာလဲဆိုတာ မသိရပါဘူး၊ ၂ ခုပေါင်းလဲစစ်မယ်၊ ၁ခုစီလဲစစ်မယ်၊ အကုန်လုံးပေါင်းလဲစစ်ချင်စစ်ပါမယ်။"
             ],
             "outputs": []
         },
         {
             "language": "javascript",
             "source": [
-                "const semester1 = [\r\n    {\r\n       name: \"Jimmy\",\r\n       scores: [\r\n          { subject: \"english\", score: 44 },\r\n          { subject: \"math\", score: 43 },\r\n          { subject: \"science\", score: 78 },\r\n          { subject: \"geography\", score: 82 },\r\n          { subject: \"history\", score: 72 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"carl\",\r\n       scores: [\r\n          { subject: \"english\", score: 37 },\r\n          { subject: \"math\", score: 80 },\r\n          { subject: \"science\", score: 91 },\r\n          { subject: \"geography\", score: 47 },\r\n          { subject: \"history\", score: 66 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"billy\",\r\n       scores: [\r\n          { subject: \"english\", score: 43 },\r\n          { subject: \"math\", score: 37 },\r\n          { subject: \"science\", score: 41 },\r\n          { subject: \"geography\", score: 87 },\r\n          { subject: \"history\", score: 76 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"andrew\",\r\n       scores: [\r\n          { subject: \"english\", score: 63 },\r\n          { subject: \"math\", score: 28 },\r\n          { subject: \"science\", score: 61 },\r\n          { subject: \"geography\", score: 63 },\r\n          { subject: \"history\", score: 49 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"keith\",\r\n       scores: [\r\n          { subject: \"english\", score: 33 },\r\n          { subject: \"math\", score: 76 },\r\n          { subject: \"science\", score: 53 },\r\n          { subject: \"geography\", score: 71 },\r\n          { subject: \"history\", score: 48 },\r\n       ],\r\n    },\r\n ];\r\n \r\n const semester2 = [\r\n    {\r\n       name: \"Jimmy\",\r\n       scores: [\r\n          { subject: \"english\", score: 44 },\r\n          { subject: \"math\", score: 60 },\r\n          { subject: \"science\", score: 44 },\r\n          { subject: \"geography\", score: 69 },\r\n          { subject: \"history\", score: 44 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"carl\",\r\n       scores: [\r\n          { subject: \"english\", score: 69 },\r\n          { subject: \"math\", score: 76 },\r\n          { subject: \"science\", score: 79 },\r\n          { subject: \"geography\", score: 97 },\r\n          { subject: \"history\", score: 88 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"billy\",\r\n       scores: [\r\n          { subject: \"english\", score: 85 },\r\n          { subject: \"math\", score: 47 },\r\n          { subject: \"science\", score: 47 },\r\n          { subject: \"geography\", score: 54 },\r\n          { subject: \"history\", score: 62 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"andrew\",\r\n       scores: [\r\n          { subject: \"english\", score: 50 },\r\n          { subject: \"math\", score: 44 },\r\n          { subject: \"science\", score: 41 },\r\n          { subject: \"geography\", score: 75 },\r\n          { subject: \"history\", score: 44 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"keith\",\r\n       scores: [\r\n          { subject: \"english\", score: 85 },\r\n          { subject: \"math\", score: 50 },\r\n          { subject: \"science\", score: 62 },\r\n          { subject: \"geography\", score: 61 },\r\n          { subject: \"history\", score: 90 },\r\n       ],\r\n    },\r\n ];\r\n \r\n const semester3 = [\r\n    {\r\n       name: \"Jimmy\",\r\n       scores: [\r\n          { subject: \"english\", score: 80 },\r\n          { subject: \"math\", score: 91 },\r\n          { subject: \"science\", score: 46 },\r\n          { subject: \"geography\", score: 93 },\r\n          { subject: \"history\", score: 60 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"carl\",\r\n       scores: [\r\n          { subject: \"english\", score: 98 },\r\n          { subject: \"math\", score: 65 },\r\n          { subject: \"science\", score: 98 },\r\n          { subject: \"geography\", score: 42 },\r\n          { subject: \"history\", score: 85 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"billy\",\r\n       scores: [\r\n          { subject: \"english\", score: 74 },\r\n          { subject: \"math\", score: 48 },\r\n          { subject: \"science\", score: 41 },\r\n          { subject: \"geography\", score: 78 },\r\n          { subject: \"history\", score: 70 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"andrew\",\r\n       scores: [\r\n          { subject: \"english\", score: 68 },\r\n          { subject: \"math\", score: 53 },\r\n          { subject: \"science\", score: 67 },\r\n          { subject: \"geography\", score: 73 },\r\n          { subject: \"history\", score: 82 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"keith\",\r\n       scores: [\r\n          { subject: \"english\", score: 44 },\r\n          { subject: \"math\", score: 41 },\r\n          { subject: \"science\", score: 72 },\r\n          { subject: \"geography\", score: 36 },\r\n          { subject: \"history\", score: 68 },\r\n       ],\r\n    },\r\n ];\r\n \r\n const calculateSemesters = (...semesters) => {\r\n   if (!Array.isArray(semesters) || semesters.length <= 0) return null;\r\n   // your code here\r\n};\r\n\r\n \r\n console.log(calculate(semester1));\r\n /**\r\n  * \r\n  * [\r\n  { name: 'carl', score: 321 }, \r\n  { name: 'Jimmy', score: 319 },\r\n  { name: 'billy', score: 284 },\r\n  { name: 'keith', score: 281 },\r\n  { name: 'andrew', score: 264 }\r\n]\r\n  */\r\n\r\n\r\nconsole.log(calculate(semester1, semester2));\r\n/**\r\n * \r\n  { name: 'carl', score: 365 }, \r\n  { name: 'keith', score: 315 },\r\n  { name: 'Jimmy', score: 290 },\r\n  { name: 'billy', score: 290 },\r\n  { name: 'andrew', score: 259 }\r\n]\r\n */\r\n\r\nconsole.log(calculate(semester1, semester2, semesters3));\r\n/**\r\n * [\r\n  { name: 'carl', score: 373 }, \r\n  { name: 'Jimmy', score: 317 },\r\n  { name: 'billy', score: 297 },\r\n  { name: 'keith', score: 297 },\r\n  { name: 'andrew', score: 287 }\r\n]\r\n */\r\n "
+                "const semester1 = [\r\n    {\r\n       name: \"Jimmy\",\r\n       scores: [\r\n          { subject: \"english\", score: 44 },\r\n          { subject: \"math\", score: 43 },\r\n          { subject: \"science\", score: 78 },\r\n          { subject: \"geography\", score: 82 },\r\n          { subject: \"history\", score: 72 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"carl\",\r\n       scores: [\r\n          { subject: \"english\", score: 37 },\r\n          { subject: \"math\", score: 80 },\r\n          { subject: \"science\", score: 91 },\r\n          { subject: \"geography\", score: 47 },\r\n          { subject: \"history\", score: 66 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"billy\",\r\n       scores: [\r\n          { subject: \"english\", score: 43 },\r\n          { subject: \"math\", score: 37 },\r\n          { subject: \"science\", score: 41 },\r\n          { subject: \"geography\", score: 87 },\r\n          { subject: \"history\", score: 76 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"andrew\",\r\n       scores: [\r\n          { subject: \"english\", score: 63 },\r\n          { subject: \"math\", score: 28 },\r\n          { subject: \"science\", score: 61 },\r\n          { subject: \"geography\", score: 63 },\r\n          { subject: \"history\", score: 49 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"keith\",\r\n       scores: [\r\n          { subject: \"english\", score: 33 },\r\n          { subject: \"math\", score: 76 },\r\n          { subject: \"science\", score: 53 },\r\n          { subject: \"geography\", score: 71 },\r\n          { subject: \"history\", score: 48 },\r\n       ],\r\n    },\r\n ];\r\n \r\n const semester2 = [\r\n    {\r\n       name: \"Jimmy\",\r\n       scores: [\r\n          { subject: \"english\", score: 44 },\r\n          { subject: \"math\", score: 60 },\r\n          { subject: \"science\", score: 44 },\r\n          { subject: \"geography\", score: 69 },\r\n          { subject: \"history\", score: 44 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"carl\",\r\n       scores: [\r\n          { subject: \"english\", score: 69 },\r\n          { subject: \"math\", score: 76 },\r\n          { subject: \"science\", score: 79 },\r\n          { subject: \"geography\", score: 97 },\r\n          { subject: \"history\", score: 88 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"billy\",\r\n       scores: [\r\n          { subject: \"english\", score: 85 },\r\n          { subject: \"math\", score: 47 },\r\n          { subject: \"science\", score: 47 },\r\n          { subject: \"geography\", score: 54 },\r\n          { subject: \"history\", score: 62 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"andrew\",\r\n       scores: [\r\n          { subject: \"english\", score: 50 },\r\n          { subject: \"math\", score: 44 },\r\n          { subject: \"science\", score: 41 },\r\n          { subject: \"geography\", score: 75 },\r\n          { subject: \"history\", score: 44 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"keith\",\r\n       scores: [\r\n          { subject: \"english\", score: 85 },\r\n          { subject: \"math\", score: 50 },\r\n          { subject: \"science\", score: 62 },\r\n          { subject: \"geography\", score: 61 },\r\n          { subject: \"history\", score: 90 },\r\n       ],\r\n    },\r\n ];\r\n \r\n const semester3 = [\r\n    {\r\n       name: \"Jimmy\",\r\n       scores: [\r\n          { subject: \"english\", score: 80 },\r\n          { subject: \"math\", score: 91 },\r\n          { subject: \"science\", score: 46 },\r\n          { subject: \"geography\", score: 93 },\r\n          { subject: \"history\", score: 60 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"carl\",\r\n       scores: [\r\n          { subject: \"english\", score: 98 },\r\n          { subject: \"math\", score: 65 },\r\n          { subject: \"science\", score: 98 },\r\n          { subject: \"geography\", score: 42 },\r\n          { subject: \"history\", score: 85 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"billy\",\r\n       scores: [\r\n          { subject: \"english\", score: 74 },\r\n          { subject: \"math\", score: 48 },\r\n          { subject: \"science\", score: 41 },\r\n          { subject: \"geography\", score: 78 },\r\n          { subject: \"history\", score: 70 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"andrew\",\r\n       scores: [\r\n          { subject: \"english\", score: 68 },\r\n          { subject: \"math\", score: 53 },\r\n          { subject: \"science\", score: 67 },\r\n          { subject: \"geography\", score: 73 },\r\n          { subject: \"history\", score: 82 },\r\n       ],\r\n    },\r\n    {\r\n       name: \"keith\",\r\n       scores: [\r\n          { subject: \"english\", score: 44 },\r\n          { subject: \"math\", score: 41 },\r\n          { subject: \"science\", score: 72 },\r\n          { subject: \"geography\", score: 36 },\r\n          { subject: \"history\", score: 68 },\r\n       ],\r\n    },\r\n ];\r\n \r\n const calculateSemesters = () => {\r\n   // your code here\r\n};\r\n\r\n \r\n console.log(calculate(semester1));\r\n /**\r\n  * \r\n  * [\r\n  { name: 'carl', score: 321 }, \r\n  { name: 'Jimmy', score: 319 },\r\n  { name: 'billy', score: 284 },\r\n  { name: 'keith', score: 281 },\r\n  { name: 'andrew', score: 264 }\r\n]\r\n  */\r\n\r\n\r\nconsole.log(calculate(semester1, semester2));\r\n/**\r\n * \r\n  { name: 'carl', score: 365 }, \r\n  { name: 'keith', score: 315 },\r\n  { name: 'Jimmy', score: 290 },\r\n  { name: 'billy', score: 290 },\r\n  { name: 'andrew', score: 259 }\r\n]\r\n */\r\n\r\nconsole.log(calculate(semester1, semester2, semester3));\r\n/**\r\n * [\r\n  { name: 'carl', score: 373 }, \r\n  { name: 'Jimmy', score: 317 },\r\n  { name: 'billy', score: 297 },\r\n  { name: 'keith', score: 297 },\r\n  { name: 'andrew', score: 287 }\r\n]\r\n */\r\n "
             ],
             "outputs": []
         },
         {
             "language": "markdown",
             "source": [
-                "# Add an integer to an array-form integer - EASY"
+                "# Add an integer to an array-form integer - EASY\r\n\r\nကိုယ်တိုင် ကြုံခဲ့ရတဲ့ interview question လေးပါ။\r\n\r\nဒါပေမယ့် easy လို့ပြောထားတာက algorithm ကျကျကြီးရေးစရာ မလိုဘူးလို့ဆိုလိုတာပါ။ တကယ့် interview မှာလို ဘာမသုံးရ ညာမသုံးရလို့မကန့်သတ်ထားတာကိုဆိုလိုတာပါ။\r\n\r\narray တစ်ခုကို integer တစ်ခုလို့မြင်လိုက်ပါ။\r\n\r\narray = [1,2,4] -> 124\r\n\r\nဆိုတော့ သူ့ကို နောက်ဂဏန်း ၁ ခုနဲ့ပေါင်းလိုက်ရင် ဖြစ်သွားမယ့် ဂဏန်းပုံကို array အတိုင်းလိုချင်တာပါ။"
             ],
             "outputs": []
         },
         {
             "language": "javascript",
             "source": [
-                "const array1 = [1, 3];\r\nconst array2 = [1, 9];\r\nconst array3 = [9, 9];\r\nconst array4 = [9, 9, 9];\r\n\r\nfunction addArrayFormInteger(array, num) {\r\n   // your code here\r\n}\r\n\r\nconsole.log(addArrayFormInteger(array1, 35)); //[4,8]\r\nconsole.log(addArrayFormInteger(array2, 1)); // [2,0]\r\nconsole.log(addArrayFormInteger(array2, 2)); // [2,1]\r\nconsole.log(addArrayFormInteger(array3, 1)); // [1,0,0]\r\nconsole.log(addArrayFormInteger(array4, 1)); // [1,0,0,0]"
+                "const array1 = [1, 3];\r\nconst array2 = [1, 9];\r\nconst array3 = [9, 9];\r\nconst array4 = [9, 9, 9];\r\n\r\nfunction addArrayFormInteger() {\r\n   // your code here\r\n}\r\n\r\nconsole.log(addArrayFormInteger(array1, 35)); // [4,8] -> 13+35=48\r\nconsole.log(addArrayFormInteger(array2, 1)); // [2,0] -> 19+1=20\r\nconsole.log(addArrayFormInteger(array2, 2)); // [2,1] -> 19+2=21\r\nconsole.log(addArrayFormInteger(array3, 1)); // [1,0,0] \r\nconsole.log(addArrayFormInteger(array4, 1)); // [1,0,0,0]"
             ],
             "outputs": []
         }
